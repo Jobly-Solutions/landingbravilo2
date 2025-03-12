@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from "next/script"; // Importar correctamente
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        {/* Google Tag Manager */}
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-0ZSDZM57LM"
