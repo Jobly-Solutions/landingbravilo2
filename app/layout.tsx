@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
-import Script from "next/script"
+import Script from 'next/script'
 import './globals.css'
+import { ChainDeskBubble } from '../components/bravilo-bubble'
 
 export const metadata: Metadata = {
-  title: 'Bravilo - Scouts de IA para la gestión de talento',
-  description: 'Con Bravilo automatiza y optimiza tus tareas repetitivas, mejora la gestión de talento y libera el potencial de tu equipo con nuestros scouts de IA.',
+  title: 'Bravilo - Scouts de IA para negocios',
+  description:
+    'Bravilo automatiza y optimiza tareas repetitivas para liberar el potencial de tu negocio con scouts de IA personalizados.',
   generator: 'braviloai.com',
 }
 
@@ -14,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        {/* Google Tag Manager */}
+        {/* Google Analytics */}
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-0ZSDZM57LM"
@@ -27,26 +29,11 @@ export default function RootLayout({
             gtag('config', 'G-0ZSDZM57LM');
           `}
         </Script>
-
-        {/* ChainDesk Chat Bubble */}
-        <Script
-          id="chaindesk-bubble"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (async () => {
-                const { default: Chatbox } = await import('https://cdn.jsdelivr.net/npm/@chaindesk/embeds@latest/dist/chatbox/index.js');
-                const widget = await Chatbox.initBubble({
-                  agentId: 'cm8rscw3d0000rj7wkb231fht',
-                  initialMessages: ['Hola 👋 ¿En qué puedo ayudarte hoy?'],
-                  context: 'Estás hablando con un usuario que visita braviloai.com. Asistilo de forma clara y amigable.',
-                });
-              })();
-            `,
-          }}
-        />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <ChainDeskBubble />
+      </body>
     </html>
   )
 }

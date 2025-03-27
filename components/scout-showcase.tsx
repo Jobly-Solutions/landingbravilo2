@@ -29,7 +29,7 @@ export function ScoutShowcase() {
       name: "Tomi",
       role: "Asistente de agenda",
       description: "Agenda turnos o reuniones según disponibilidad, envía recordatorios y mejora tu organización diaria.",
-      image: "/tomi.png?height=200&width=200",
+      image: "/Tomi.png?height=200&width=200",
     },
   ]
 
