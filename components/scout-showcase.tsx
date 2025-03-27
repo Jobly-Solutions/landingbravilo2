@@ -1,68 +1,74 @@
-import Image from "next/image"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export function ScoutShowcase() {
   const scouts = [
     {
-      name: "Bruno",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/BRUNO%20AI-l2U3HqJunVpFG9rwLkeXYypj0ohx3c.webp",
-      title: "Buscador de Talento",
-      description:
-        "Encuentra talento antes de que lo necesites. Recorre bases de datos, redes y plataformas para encontrar el perfil perfecto para tu equipo, sin que pierdas tiempo buscando en el océano de candidatos.",
-      action: "Activar Bruno",
+      id: 1,
+      name: "Lía",
+      role: "Atención al cliente 24/7",
+      description: "Responde consultas frecuentes, gestiona reclamos y acompaña al cliente en cada paso, sin demoras ni descansos.",
+      image: "/Lia.png?height=200&width=200",
     },
     {
-      name: "Clara",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Clara%20AI-PGjvuoMzbd7sAxoYmtMKZApUKsahgv.webp",
-      title: "Evaluadora de Candidatos",
-      description:
-        "No es solo un 'match'. Clara analiza cultura, skills y expectativas de cada candidato para asegurarse de que la contratación tenga sentido. Evita entrevistas innecesarias.",
-      action: "Activar Clara",
+      id: 2,
+      name: "Simón",
+      role: "Ventas automatizadas",
+      description: "Capta leads, responde dudas y concreta ventas por WhatsApp, email o desde tu web. Siempre disponible.",
+      image: "/Simon.png?height=200&width=200",
     },
     {
-      name: "Mateo",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MATEO%20AI-glWTfgRWVpg6tikqIt01nCwafil6aX.webp",
-      title: "Estratega de Equipo",
-      description:
-        "Mateo no solo te ayuda a contratar, sino a pensar en el futuro de tu equipo. Analiza brechas de talento, te sugiere qué perfiles sumar y te ayuda a construir estructuras escalables.",
-      action: "Activar Mateo",
+      id: 3,
+      name: "Vera",
+      role: "Gestión de pedidos",
+      description: "Recibe pedidos, los organiza, hace cálculos automáticos y coordina entregas o retiros sin intervención humana.",
+      image: "/Vera.png?height=200&width=200",
+    },
+    {
+      id: 4,
+      name: "Tomi",
+      role: "Asistente de agenda",
+      description: "Agenda turnos o reuniones según disponibilidad, envía recordatorios y mejora tu organización diaria.",
+      image: "/tomi.png?height=200&width=200",
     },
   ]
 
   return (
-    <div className="mb-8">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold">Tus Scouts AI</h2>
-        <Button variant="outline">Ver todos</Button>
-      </div>
+    <section className="py-20 bg-blue-50/30">
+      <div className="container mx-auto px-4">
+        <div className="mb-10 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Conocé nuestros Scouts de IA</h2>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            Los encargados de hacer crecer tu negocio de forma automática.
+            <br />
+            Sin errores, sin quejas, y mucho más efectivos que cualquier chatbot genérico.
+          </p>
+        </div>
 
-      <div className="grid gap-6 md:grid-cols-3">
-        {scouts.map((scout, index) => (
-          <Card key={index} className="overflow-hidden">
-            <div className="bg-black p-4 flex justify-center">
-              <Image
-                src={scout.image || "/placeholder.svg"}
-                alt={scout.name}
-                width={180}
-                height={180}
-                className="rounded-full"
-              />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {scouts.map((scout) => (
+            <div key={scout.id} className="bg-blue-50 rounded-3xl p-6 flex items-start gap-6">
+              <div className="flex-shrink-0 w-24 h-24 md:w-32 md:h-32 bg-[#0071E3] rounded-2xl overflow-hidden">
+                <div className="relative w-full h-full">
+                  <Image src={scout.image || "/placeholder.svg"} alt={scout.name} fill className="object-cover" />
+                </div>
+              </div>
+
+              <div className="flex-1">
+                <h3 className="text-2xl font-bold mb-1">{scout.name}</h3>
+                <p className="text-[#0071E3] font-medium mb-2">{scout.role}</p>
+                <p className="text-gray-700 mb-4">{scout.description}</p>
+
+                <div className="text-right">
+                  <Button className="bg-[#0071E3] hover:bg-blue-700 text-white rounded-full px-6" size="sm">
+                    Ver más detalles
+                  </Button>
+                </div>
+              </div>
             </div>
-            <CardHeader>
-              <CardTitle className="text-xl text-blue-600">{scout.name}</CardTitle>
-              <CardDescription>{scout.title}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">{scout.description}</p>
-            </CardContent>
-            <CardFooter>
-              <Button className="w-full">{scout.action}</Button>
-            </CardFooter>
-          </Card>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   )
 }
-

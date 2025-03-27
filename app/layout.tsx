@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Script from "next/script"; // Importar correctamente
+import Script from "next/script"
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -10,9 +10,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es">
       <head>
@@ -29,6 +27,24 @@ export default function RootLayout({
             gtag('config', 'G-0ZSDZM57LM');
           `}
         </Script>
+
+        {/* ChainDesk Chat Bubble */}
+        <Script
+          id="chaindesk-bubble"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (async () => {
+                const { default: Chatbox } = await import('https://cdn.jsdelivr.net/npm/@chaindesk/embeds@latest/dist/chatbox/index.js');
+                const widget = await Chatbox.initBubble({
+                  agentId: 'cm8rscw3d0000rj7wkb231fht',
+                  initialMessages: ['Hola 👋 ¿En qué puedo ayudarte hoy?'],
+                  context: 'Estás hablando con un usuario que visita braviloai.com. Asistilo de forma clara y amigable.',
+                });
+              })();
+            `,
+          }}
+        />
       </head>
       <body>{children}</body>
     </html>

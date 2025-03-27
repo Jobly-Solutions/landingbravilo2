@@ -1,22 +1,24 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
-import { Benefits } from "@/components/benefits"
-import { Scouts } from "@/components/scouts"
+import { WhyScouts } from "@/components/why-scouts"
+import { ScoutShowcase } from "@/components/scout-showcase"
 import { Integrations } from "@/components/integrations"
-import { Process } from "@/components/process"
+import { HowItWorks } from "@/components/how-it-works"
 import { Pricing } from "@/components/pricing"
+import { Industries } from "@/components/industries"
 import { Footer } from "@/components/footer"
 
-export default function LandingPage() {
+export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
       <main>
         <Hero />
-        <Benefits />
-        <Scouts />
+        <WhyScouts />
+        <ScoutShowcase />
+        <Industries />
         <Integrations />
-        <Process />
+        <HowItWorks />
         <Pricing />
       </main>
       <Footer />
