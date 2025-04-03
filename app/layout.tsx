@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import './globals.css'
-import { ChainDeskBubble } from '../components/bravilo-bubble'
+
 
 export const metadata: Metadata = {
   title: 'Bravilo - Scouts de IA para negocios',
@@ -32,7 +32,18 @@ export default function RootLayout({
       </head>
       <body>
         {children}
-        <ChainDeskBubble />
+        <Script
+          type="module"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              import Chatbox from 'https://cdn.jsdelivr.net/npm/@bravilo/embeds@latest/dist/chatbox/index.js';
+              Chatbox.initBubble({
+                agentId: 'cm8rscw3d0000rj7wkb231fht',
+              });
+            `
+          }}
+        />
       </body>
     </html>
   )

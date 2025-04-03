@@ -30,11 +30,10 @@ export function Hero() {
 
       <div className="container mx-auto text-center max-w-4xl relative z-10">
         <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[#0071E3]">
-          Optimiza tu equipo con Bravilo Scouts
+        Sumá inteligencia a tu equipo sin sumar estructura
         </h1>
         <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Automatizá tareas repetitivas, respondé más rápido a tus clientes y hacé que tu negocio crezca sin sumar más
-          carga operativa.
+          Automatizá tareas repetitivas, respondé más rápido y hacé crecer tu negocio sin contratar más personal.
         </p>
 
         <div className="flex flex-col md:flex-row gap-4 justify-center mb-16">
@@ -63,7 +62,7 @@ export function Hero() {
           />
           <div className="relative rounded-xl overflow-hidden bg-white shadow-2xl z-10">
             <img
-              src="braviloapp.png"
+              src="hero.png"
               alt="Plataforma Bravilo"
               className="w-full h-auto"
             />

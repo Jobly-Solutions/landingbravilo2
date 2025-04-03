@@ -1,15 +1,25 @@
-import { Building2, ShoppingBag, Truck } from "lucide-react"
+import { Building2, Truck, Gavel  } from "lucide-react"
 
 export function Industries() {
   const industries = [
     {
-      icon: <ShoppingBag className="w-8 h-8 text-[#0071E3]" />,
-      title: "E-commerce",
-      description: "Optimiza la atención al cliente, gestión de pedidos y post-venta para tu tienda online.",
+      icon: <Building2 className="w-8 h-8 text-[#0071E3]" />,
+      title: "Inmobiliarias",
+      description: "Mejora la captación de clientes, agendamiento de visitas y seguimiento de operaciones.",
       benefits: [
-        "Atención 24/7 a compradores",
-        "Seguimiento automático de pedidos",
-        "Gestión de devoluciones sin fricción",
+        "Calificación automática de leads",
+        "Agendamiento inteligente de visitas",
+        "Seguimiento personalizado de clientes",
+      ],
+    },
+    {
+      icon: <Gavel className="w-8 h-8 text-[#0071E3]" />,
+      title: "Estudios Jurídicos",
+      description: "Automatizá la gestión de consultas, coordinación de reuniones y seguimiento de casos para tus clientes.",
+      benefits: [
+        "Atención automática a consultas legales frecuentes",
+        "Agendamiento de turnos y seguimiento de casos",
+        "Derivación a abogados solo cuando es necesario",
       ],
     },
     {
@@ -22,16 +32,7 @@ export function Industries() {
         "Resolución inmediata de incidencias",
       ],
     },
-    {
-      icon: <Building2 className="w-8 h-8 text-[#0071E3]" />,
-      title: "Inmobiliarias",
-      description: "Mejora la captación de clientes, agendamiento de visitas y seguimiento de operaciones.",
-      benefits: [
-        "Calificación automática de leads",
-        "Agendamiento inteligente de visitas",
-        "Seguimiento personalizado de clientes",
-      ],
-    },
+    
   ]
 
   return (

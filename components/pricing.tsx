@@ -41,9 +41,16 @@ export function Pricing() {
               </div>
             </div>
 
-            <button className="w-full py-3 bg-white border border-[#0071E3] text-[#0071E3] rounded-full font-medium hover:bg-blue-50 transition-colors">
-              Quiero saber Más!
-            </button>
+            <a
+  href="https://calendar.app.google/FXgPt1w8ZTGpU8Fa9"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="block w-full"
+>
+  <button className="w-full py-3 bg-white border border-[#0071E3] text-[#0071E3] rounded-full font-medium hover:bg-blue-50 transition-colors">
+    Quiero saber Más!
+  </button>
+</a>
           </div>
 
           {/* Plan Profesional */}
@@ -85,9 +92,16 @@ export function Pricing() {
               </div>
             </div>
 
-            <button className="w-full py-3 bg-[#0071E3] text-white rounded-full font-medium hover:bg-blue-700 transition-colors">
-              Quiero saber Más!
-            </button>
+            <a
+  href="https://calendar.app.google/FXgPt1w8ZTGpU8Fa9"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="block w-full"
+>
+  <button className="w-full py-3 bg-white border border-[#0071E3] text-[#0071E3] rounded-full font-medium hover:bg-blue-50 transition-colors">
+    Quiero saber Más!
+  </button>
+</a>
           </div>
 
           {/* Plan Empresarial */}
@@ -121,9 +135,16 @@ export function Pricing() {
               </div>
             </div>
 
-            <button className="w-full py-3 bg-white border border-[#0071E3] text-[#0071E3] rounded-full font-medium hover:bg-blue-50 transition-colors">
-              Quiero saber Más!
-            </button>
+            <a
+  href="https://calendar.app.google/FXgPt1w8ZTGpU8Fa9"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="block w-full"
+>
+  <button className="w-full py-3 bg-white border border-[#0071E3] text-[#0071E3] rounded-full font-medium hover:bg-blue-50 transition-colors">
+    Quiero saber Más!
+  </button>
+</a>
           </div>
         </div>
 
