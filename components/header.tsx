@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
@@ -7,8 +8,14 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b">
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-        <Link href="https://braviloai.com/" className="text-2xl font-bold text-[#0071E3]">
-          Bravilo
+        <Link href="https://braviloai.com/" className="relative w-48 h-12">
+          <Image
+            src="/logobravilo.png"
+            alt="Bravilo Logo"
+            fill
+            className="object-contain"
+            priority
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">

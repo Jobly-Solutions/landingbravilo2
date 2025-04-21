@@ -23,25 +23,27 @@ export async function getAllBlogPosts(): Promise<BlogPost[]> {
 
 Hace unos años, la inteligencia artificial parecía algo exclusivo de grandes corporaciones o películas futuristas. Pero eso cambió. Hoy, las PyMEs tienen al alcance de la mano herramientas que antes parecían imposibles. Y lo mejor: lo que viene en 2025 abre aún más puertas para crecer, automatizar y tomar decisiones inteligentes.
 
+## ¿Qué encontrarás en este artículo?
+
 En este artículo te compartimos un resumen claro, optimista y realista de las tendencias en IA que están marcando el rumbo para las pequeñas y medianas empresas.
 
 ## 1. IA más accesible (y más simple de usar)
 
 Cada vez más plataformas están diseñadas para usuarios sin conocimientos técnicos. En 2025, vas a ver herramientas:
 
-- En español y con lenguaje natural
-- Con interfaces visuales e intuitivas
-- Que no requieren programadores ni implementaciones costosas
+* En español y con lenguaje natural
+* Con interfaces visuales e intuitivas
+* Que no requieren programadores ni implementaciones costosas
 
-Lo que antes llevaba meses, ahora se puede activar en días (o incluso horas).
+> Lo que antes llevaba meses, ahora se puede activar en días (o incluso horas).
 
 ## 2. IA centrada en el cliente
 
 La inteligencia artificial no solo automatiza. Ahora entiende mejor al cliente:
 
-- Chatbots con tono humano
-- Recomendaciones personalizadas
-- Atención multicanal 24/7
+* Chatbots con tono humano
+* Recomendaciones personalizadas
+* Atención multicanal 24/7
 
 Ideal para mejorar la experiencia sin necesidad de ampliar tu equipo.
 
@@ -49,9 +51,9 @@ Ideal para mejorar la experiencia sin necesidad de ampliar tu equipo.
 
 Ya no se trata solo de ejecutar tareas. La IA empieza a predecir comportamientos y necesidades:
 
-- ¿Qué clientes están por abandonar?
-- ¿Qué productos se van a agotar?
-- ¿Dónde podés ahorrar más tiempo o dinero?
+* ¿Qué clientes están por abandonar?
+* ¿Qué productos se van a agotar?
+* ¿Dónde podés ahorrar más tiempo o dinero?
 
 Los datos se transforman en decisiones concretas.
 
@@ -59,9 +61,9 @@ Los datos se transforman en decisiones concretas.
 
 Las herramientas de IA también están diseñadas para cuidar a las personas:
 
-- Asistentes virtuales que organizan tareas
-- Alertas inteligentes para evitar el burnout
-- Planificadores automáticos que equilibran cargas de trabajo
+* Asistentes virtuales que organizan tareas
+* Alertas inteligentes para evitar el burnout
+* Planificadores automáticos que equilibran cargas de trabajo
 
 Más foco en lo importante, menos estrés por lo urgente.
 
@@ -69,9 +71,9 @@ Más foco en lo importante, menos estrés por lo urgente.
 
 La IA también protege:
 
-- Identifica errores humanos antes de que afecten
-- Detecta fraudes o accesos sospechosos
-- Asegura datos sensibles sin procesos complejos
+* Identifica errores humanos antes de que afecten
+* Detecta fraudes o accesos sospechosos
+* Asegura datos sensibles sin procesos complejos
 
 Tranquilidad para vos y confianza para tus clientes.
 
@@ -79,17 +81,17 @@ Tranquilidad para vos y confianza para tus clientes.
 
 No hace falta saber de tecnología ni cambiar todo de un día para otro. Solo necesitás:
 
-- Identificar una necesidad concreta
-- Explorar una solución pequeña, fácil de implementar
-- Ir midiendo resultados y ajustando
+1. Identificar una necesidad concreta
+2. Explorar una solución pequeña, fácil de implementar
+3. Ir midiendo resultados y ajustando
 
-Lo más importante: empezar por lo que te genera impacto hoy.
+> Lo más importante: empezar por lo que te genera impacto hoy.
 
-## Charlá con el equipo de Bravilo y preparate para lo que viene
+### Charlá con el equipo de Bravilo y preparate para lo que viene
 
 En Bravilo, te ayudamos a encontrar la herramienta justa para vos: sin vueltas, sin promesas vacías.
 
-Agendá una charla gratuita con nuestro equipo y descubrí cómo estas tendencias se pueden aplicar, paso a paso, en tu empresa.
+[Agendá una charla gratuita](#) con nuestro equipo y descubrí cómo estas tendencias se pueden aplicar, paso a paso, en tu empresa.
       `,
       keywords: [
         "IA para pequeñas empresas",

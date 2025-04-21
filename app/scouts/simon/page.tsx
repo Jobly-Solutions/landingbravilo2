@@ -2,141 +2,155 @@ import Image from "next/image"
 import HeroSection from "@/components/hero-section"
 import CTAButton from "@/components/cta-button"
 import { Header } from "@/components/header"
+
 export default function SimonPage() {
   return (
     <>
-    <Header />
-      <HeroSection
-        title="Simón - Ventas automatizadas"
-        subtitle="Capta leads, responde dudas y concreta ventas por WhatsApp, email o desde tu web. Siempre disponible."
-      />
+      <Header />
+      <main className="pt-16">
+        <div className="text-center px-4 py-8 md:py-12">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#0071E3] mb-4">
+            Simon - Asistente de ventas
+          </h1>
+          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+            Automatiza el seguimiento de leads y clientes, mejora tus conversiones y optimiza tu proceso de ventas.
+          </p>
+          <CTAButton text="Agendar Demo" className="w-full md:w-auto" />
+        </div>
 
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="flex justify-center">
-              <div className="relative h-[400px] w-[300px]">
-                <Image
-                  src="/Simon400.png?height=400&width=300"
-                  alt="Simón - Asistente de ventas automatizadas"
-                  fill
-                  className="object-contain"
-                />
+        <div className="px-4 py-8">
+          <div className="flex justify-center mb-12">
+            <div className="relative w-[200px] h-[200px] md:w-[300px] md:h-[400px]">
+              <Image
+                src="/simon400.png"
+                alt="Simon - Asistente de ventas"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
+              Optimiza tu proceso de ventas
+            </h2>
+            
+            <div className="space-y-6">
+              <div className="bg-white rounded-lg p-4 shadow-sm">
+                <div className="flex gap-4 items-start">
+                  <div className="bg-blue-100 rounded-full p-2 md:p-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 md:h-6 md:w-6 text-blue-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-semibold mb-2">Seguimiento automático</h3>
+                    <p className="text-sm md:text-base text-gray-600">
+                      Simon realiza el seguimiento de tus leads y clientes de forma automática, sin perder oportunidades.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg p-4 shadow-sm">
+                <div className="flex gap-4 items-start">
+                  <div className="bg-blue-100 rounded-full p-2 md:p-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 md:h-6 md:w-6 text-blue-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-semibold mb-2">Comunicación personalizada</h3>
+                    <p className="text-sm md:text-base text-gray-600">
+                      Envía mensajes personalizados según el perfil y etapa de cada lead en tu embudo de ventas.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg p-4 shadow-sm">
+                <div className="flex gap-4 items-start">
+                  <div className="bg-blue-100 rounded-full p-2 md:p-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 md:h-6 md:w-6 text-blue-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-semibold mb-2">Análisis de datos</h3>
+                    <p className="text-sm md:text-base text-gray-600">
+                      Obtén insights valiosos sobre tu proceso de ventas y toma decisiones basadas en datos.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Potencia tus ventas sin ampliar tu equipo</h2>
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="bg-blue-100 rounded-full p-3 h-fit">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 text-blue-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">Captación de leads calificados</h3>
-                    <p className="text-gray-600">
-                      Simón identifica y califica automáticamente a tus potenciales clientes, priorizando los más
-                      prometedores.
-                    </p>
-                  </div>
-                </div>
+            <div className="mt-8 text-center">
+              <CTAButton text="Mejora tus ventas con Simon" className="w-full md:w-auto" />
+            </div>
+          </div>
+        </div>
 
-                <div className="flex gap-4">
-                  <div className="bg-blue-100 rounded-full p-3 h-fit">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 text-blue-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">Respuestas inmediatas a consultas</h3>
-                    <p className="text-gray-600">
-                      Responde preguntas sobre productos, precios y disponibilidad al instante, sin hacer esperar a tus
-                      clientes.
-                    </p>
-                  </div>
-                </div>
+        <div className="bg-gray-50 px-4 py-12 mt-12">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
+              Beneficios de automatizar tus ventas
+            </h2>
 
-                <div className="flex gap-4">
-                  <div className="bg-blue-100 rounded-full p-3 h-fit">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 text-blue-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">Seguimiento personalizado</h3>
-                    <p className="text-gray-600">
-                      Mantiene el contacto con tus leads a través de seguimientos programados y personalizados.
-                    </p>
-                  </div>
-                </div>
+            <div className="space-y-6">
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <div className="text-[#0071E3] text-2xl md:text-3xl font-bold mb-3">01</div>
+                <h3 className="text-xl font-semibold mb-2">Más conversiones</h3>
+                <p className="text-sm md:text-base text-gray-600">
+                  Aumenta tus tasas de conversión con seguimiento consistente y comunicación oportuna.
+                </p>
               </div>
 
-              <div className="mt-10">
-                <CTAButton text="Potencia tus ventas con Simón" />
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <div className="text-[#0071E3] text-2xl md:text-3xl font-bold mb-3">02</div>
+                <h3 className="text-xl font-semibold mb-2">Ahorro de tiempo</h3>
+                <p className="text-sm md:text-base text-gray-600">
+                  Automatiza tareas repetitivas y enfócate en lo que realmente importa: cerrar ventas.
+                </p>
+              </div>
+
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <div className="text-[#0071E3] text-2xl md:text-3xl font-bold mb-3">03</div>
+                <h3 className="text-xl font-semibold mb-2">Mejor seguimiento</h3>
+                <p className="text-sm md:text-base text-gray-600">
+                  No pierdas oportunidades de venta con un seguimiento sistemático y consistente.
+                </p>
               </div>
             </div>
           </div>
         </div>
-      </section>
 
-      <section className="bg-blue-50 py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Beneficios de automatizar tus ventas</h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="text-blue-600 text-4xl font-bold mb-4">01</div>
-              <h3 className="text-xl font-semibold mb-3">Nunca pierdes una oportunidad</h3>
-              <p className="text-gray-600">
-                Simón responde a todas las consultas de ventas al instante, incluso fuera del horario comercial.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="text-blue-600 text-4xl font-bold mb-4">02</div>
-              <h3 className="text-xl font-semibold mb-3">Conversión optimizada</h3>
-              <p className="text-gray-600">
-                Incrementa hasta un 35% tus tasas de conversión con seguimientos consistentes y personalizados.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="text-blue-600 text-4xl font-bold mb-4">03</div>
-              <h3 className="text-xl font-semibold mb-3">Datos para mejorar</h3>
-              <p className="text-gray-600">
-                Obtén insights valiosos sobre tus clientes y optimiza tu estrategia de ventas continuamente.
-              </p>
-            </div>
-          </div>
+        <div className="px-4 py-12 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">
+            ¿Listo para potenciar tus ventas?
+          </h2>
+          <CTAButton text="Comenzar con Simon" className="w-full md:w-auto text-base md:text-lg px-6 md:px-8 py-3" />
         </div>
-      </section>
-
-      <section className="py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">¿Listo para automatizar tus ventas?</h2>
-          <CTAButton text="Comenzar con Simón" className="text-lg px-8 py-3" />
-        </div>
-      </section>
+      </main>
     </>
   )
 }
