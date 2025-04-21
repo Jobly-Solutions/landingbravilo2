@@ -88,7 +88,7 @@ export default function VeraPage() {
             <div className="order-1 md:order-2 flex justify-center">
               <div className="relative h-[400px] w-[300px]">
                 <Image
-                  src="/Vera400.png?height=400&width=300"
+                  src="/vera400.png?height=400&width=300"
                   alt="Vera - Asistente de gestión de pedidos"
                   fill
                   className="object-contain"
