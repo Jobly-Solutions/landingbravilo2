@@ -1,48 +1,73 @@
-import Image from "next/image"
+import Link from "next/link"
+import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 export function Header() {
   return (
-    <header className="fixed top-0 w-full bg-white/80 backdrop-blur-sm z-50 border-b">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Image
-            src="logobravilo.png"
-            alt="Bravilo"
-            width={120}
-            height={120}
-          />
-          {/* <span className="text-xl font-bold bg-gradient-to-r from-[#0071E3] to-[#0071E3] bg-clip-text text-transparent">
-            Bravilo
-          </span> */}
-        </div>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b">
+      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
+        <Link href="https://braviloai.com/" className="text-2xl font-bold text-[#0071E3]">
+          Bravilo
+        </Link>
 
         <nav className="hidden md:flex items-center gap-8">
-          <a href="./#benefits" className="text-sm hover:text-[#0071E3]">
+          <Link href="https://braviloai.com/#benefits" className="text-sm hover:text-[#0071E3]">
             ¿Por qué?
-          </a>
-          <a href="./#scouts" className="text-sm hover:text-[#0071E3]">
+          </Link>
+          <Link href="https://braviloai.com/scouts" className="text-sm hover:text-[#0071E3]">
             Scouts
-          </a>
-          
-          <a href="./#process" className="text-sm hover:text-[#0071E3]">
+          </Link>
+          <Link href="https://braviloai.com/#process" className="text-sm hover:text-[#0071E3]">
             Proceso
-          </a>
-          <a href="./#pricing" className="text-sm hover:text-[#0071E3]">
+          </Link>
+          <Link href="https://braviloai.com/#pricing" className="text-sm hover:text-[#0071E3]">
             Planes
-          </a>
-          <a href="/blog" className="text-sm hover:text-[#0071E3]">
+          </Link>
+          <Link href="https://braviloai.com/blog" className="text-sm hover:text-[#0071E3]">
             Blog
-          </a>
+          </Link>
         </nav>
-        <a
-    href="https://calendar.app.google/FXgPt1w8ZTGpU8Fa9"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-block"
-  >
-        <Button className="bg-[#0071E3] hover:bg-[#0071E3]/90">Agendar Demo</Button>
-        </a>
+
+        <div className="flex items-center gap-4">
+          <Link href="https://braviloai.com/contacto">
+            <Button variant="outline" className="hidden md:flex">
+              Contactar
+            </Button>
+          </Link>
+
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="md:hidden">
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent>
+              <nav className="flex flex-col gap-4 mt-8">
+                <Link href="https://braviloai.com/#benefits" className="text-sm hover:text-[#0071E3]">
+                  ¿Por qué?
+                </Link>
+                <Link href="https://braviloai.com/scouts" className="text-sm hover:text-[#0071E3]">
+                  Scouts
+                </Link>
+                <Link href="https://braviloai.com/#process" className="text-sm hover:text-[#0071E3]">
+                  Proceso
+                </Link>
+                <Link href="https://braviloai.com/#pricing" className="text-sm hover:text-[#0071E3]">
+                  Planes
+                </Link>
+                <Link href="https://braviloai.com/blog" className="text-sm hover:text-[#0071E3]">
+                  Blog
+                </Link>
+                <Link href="https://braviloai.com/contacto">
+                  <Button variant="outline" className="w-full">
+                    Contactar
+                  </Button>
+                </Link>
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   )

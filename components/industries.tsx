@@ -1,4 +1,5 @@
-import { Building2, Truck, Gavel  } from "lucide-react"
+import { Building2, Truck, Gavel, ArrowRight } from "lucide-react"
+import Link from "next/link"
 
 export function Industries() {
   const industries = [
@@ -11,6 +12,7 @@ export function Industries() {
         "Agendamiento inteligente de visitas",
         "Seguimiento personalizado de clientes",
       ],
+      link: "/sectores/inmobiliarias"
     },
     {
       icon: <Gavel className="w-8 h-8 text-[#0071E3]" />,
@@ -21,6 +23,7 @@ export function Industries() {
         "Agendamiento de turnos y seguimiento de casos",
         "Derivación a abogados solo cuando es necesario",
       ],
+      link: "/sectores/estudios-juridicos"
     },
     {
       icon: <Truck className="w-8 h-8 text-[#0071E3]" />,
@@ -31,8 +34,8 @@ export function Industries() {
         "Notificaciones automáticas de estado",
         "Resolución inmediata de incidencias",
       ],
+      link: "/sectores/logistica"
     },
-    
   ]
 
   return (
@@ -50,7 +53,7 @@ export function Industries() {
               <h3 className="text-2xl font-bold mb-4">{industry.title}</h3>
               <p className="text-gray-600 mb-6">{industry.description}</p>
 
-              <ul className="space-y-3">
+              <ul className="space-y-3 mb-8">
                 {industry.benefits.map((benefit, idx) => (
                   <li key={idx} className="flex items-center gap-2 text-gray-700">
                     <div className="w-2 h-2 bg-[#0071E3] rounded-full" />
@@ -58,9 +61,27 @@ export function Industries() {
                   </li>
                 ))}
               </ul>
+
+              <Link 
+                href={industry.link}
+                className="inline-flex items-center gap-2 text-[#0071E3] font-medium hover:gap-3 transition-all"
+              >
+                Ver más detalles
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           ))}
         </div>
+
+        {/* <div className="text-center mt-12">
+          <Link 
+            href="/sectores"
+            className="inline-flex items-center gap-2 bg-[#0071E3] text-white px-6 py-3 rounded-lg hover:bg-[#0060C2] transition-colors"
+          >
+            Ver todos los sectores
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div> */}
       </div>
     </section>
   )

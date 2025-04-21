@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import Link from "next/link"
 
 export function ScoutShowcase() {
   const scouts = [
@@ -9,6 +10,7 @@ export function ScoutShowcase() {
       role: "Atención al cliente 24/7",
       description: "Responde consultas frecuentes, gestiona reclamos y acompaña al cliente en cada paso, sin demoras ni descansos.",
       image: "/Lia.png?height=200&width=200",
+      link: "/scouts/lia"
     },
     {
       id: 2,
@@ -16,6 +18,7 @@ export function ScoutShowcase() {
       role: "Ventas automatizadas",
       description: "Capta leads, responde dudas y concreta ventas por WhatsApp, email o desde tu web. Siempre disponible.",
       image: "/Simon.png?height=200&width=200",
+      link: "/scouts/simon"
     },
     {
       id: 3,
@@ -23,6 +26,7 @@ export function ScoutShowcase() {
       role: "Gestión de pedidos",
       description: "Recibe pedidos, los organiza, hace cálculos automáticos y coordina entregas o retiros sin intervención humana.",
       image: "/Vera.png?height=200&width=200",
+      link: "/scouts/vera"
     },
     {
       id: 4,
@@ -30,6 +34,7 @@ export function ScoutShowcase() {
       role: "Asistente de agenda",
       description: "Agenda turnos o reuniones según disponibilidad, envía recordatorios y mejora tu organización diaria.",
       image: "/Tomi.png?height=200&width=200",
+      link: "/scouts/tomi"
     },
   ]
 
@@ -60,9 +65,11 @@ export function ScoutShowcase() {
                 <p className="text-gray-700 mb-4">{scout.description}</p>
 
                 <div className="text-right">
-                  <Button className="bg-[#0071E3] hover:bg-blue-700 text-white rounded-full px-6" size="sm">
-                    Ver más detalles
-                  </Button>
+                  <Link href={scout.link}>
+                    <Button className="bg-[#0071E3] hover:bg-blue-700 text-white rounded-full px-6" size="sm">
+                      Ver más detalles
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>

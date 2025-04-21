@@ -169,7 +169,7 @@ export default function EstudiosJuridicosPage() {
             </blockquote>
             <div className="flex items-center">
               <div className="relative h-12 w-12 rounded-full overflow-hidden mr-4">
-                <Image src="/placeholder.svg?height=48&width=48" alt="Testimonio" fill className="object-cover" />
+                <Image src="/carlos-law.png?height=48&width=48" alt="Testimonio" fill className="object-cover" />
               </div>
               <div>
                 <p className="font-semibold">Carlos Ramírez</p>
