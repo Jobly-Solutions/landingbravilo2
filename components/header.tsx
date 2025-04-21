@@ -18,17 +18,21 @@ export function Header() {
         </div>
 
         <nav className="hidden md:flex items-center gap-8">
-          <a href="#benefits" className="text-sm hover:text-[#0071E3]">
+          <a href="./#benefits" className="text-sm hover:text-[#0071E3]">
             ¿Por qué?
           </a>
-          <a href="#scouts" className="text-sm hover:text-[#0071E3]">
+          <a href="./#scouts" className="text-sm hover:text-[#0071E3]">
             Scouts
           </a>
-          <a href="#process" className="text-sm hover:text-[#0071E3]">
+          
+          <a href="./#process" className="text-sm hover:text-[#0071E3]">
             Proceso
           </a>
-          <a href="#pricing" className="text-sm hover:text-[#0071E3]">
+          <a href="./#pricing" className="text-sm hover:text-[#0071E3]">
             Planes
+          </a>
+          <a href="/blog" className="text-sm hover:text-[#0071E3]">
+            Blog
           </a>
         </nav>
         <a

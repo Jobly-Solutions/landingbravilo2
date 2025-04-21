@@ -1,6 +1,9 @@
 import { CreditCard, AlarmClock, Settings, CheckCircle, Rocket } from "lucide-react"
+import { getAllBlogPosts } from "@/lib/blog"
+import Link from "next/link"
+import Image from "next/image"
 
-export function HowItWorks() {
+export async function HowItWorks() {
   const steps = [
     {
       number: 1,
@@ -34,6 +37,11 @@ export function HowItWorks() {
     },
   ]
 
+  const posts = await getAllBlogPosts()
+  const randomPosts = posts
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 3)
+
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -55,6 +63,41 @@ export function HowItWorks() {
               <p className="text-sm text-gray-600">{step.description}</p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-6">Artículos recientes</h2>
+            <p className="text-lg text-gray-600">Descubrí cómo la IA puede transformar tu negocio</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {randomPosts.map((post) => (
+              <Link 
+                key={post.slug} 
+                href={`/blog/${post.slug}`}
+                className="bg-white border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="relative h-40 w-full">
+                  <Image
+                    src={post.coverImage}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-bold mb-2 line-clamp-2">{post.title}</h3>
+                  <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                    {post.description}
+                  </p>
+                  <span className="text-blue-600 text-sm font-medium">
+                    Leer más
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </section>
