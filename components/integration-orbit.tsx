@@ -1,135 +1,58 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 
-interface IntegrationIcon {
-  name: string
-  logo: string
-  color: string
-}
-
 export function IntegrationOrbit() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const animationRef = useRef<number>()
-
-  // Primera órbita de integraciones
-  const innerIntegrations: IntegrationIcon[] = [
-    { name: "WhatsApp", logo: "/whatsapp-logo.png", color: "#25D366" },
-    { name: "Excel", logo: "/excel-logo.png", color: "#217346" },
-    { name: "Instagram", logo: "/instagram-logo.png", color: "#E4405F" },
-    { name: "Zapier", logo: "/zapier-logo.png", color: "#FF4A00" },
-    { name: "Telegram", logo: "/telegram-logo.png", color: "#0088CC" },
-    { name: "Mercado Pago", logo: "/mercadopago-logo.png", color: "#00B1EA" },
-  ]
-
-  // Segunda órbita de integraciones
-  const outerIntegrations: IntegrationIcon[] = [
-    { name: "Facebook", logo: "/facebook-logo.png", color: "#1877F2" },
-    { name: "Make", logo: "/make-logo.png", color: "#8A2BE2" },
-    { name: "Google Calendar", logo: "/calendar-logo.png", color: "#4285F4" },
-    { name: "Gmail", logo: "/gmail-logo.png", color: "#EA4335" },
-    { name: "Slack", logo: "/slack-logo.png", color: "#4A154B" },
-    { name: "Zoom", logo: "/generic-video-call-logo.png", color: "#2D8CFF" },
-    { name: "Notion", logo: "/notion-logo.png", color: "#000000" },
-    { name: "Drive", logo: "/drive-logo.webp", color: "#0F9D58" },
-  ]
+  const [rotation, setRotation] = useState(0)
 
   useEffect(() => {
-    const innerIcons = document.querySelectorAll(".inner-orbit-icon")
-    const outerIcons = document.querySelectorAll(".outer-orbit-icon")
-    const innerTotal = innerIcons.length
-    const outerTotal = outerIcons.length
-    let angle = 0
+    const interval = setInterval(() => {
+      setRotation((prev) => (prev + 0.2) % 360)
+    }, 50)
 
-    const animate = () => {
-      angle += 0.002 // Velocidad de rotación
-
-      // Animar la órbita interna
-      innerIcons.forEach((icon, index) => {
-        const iconAngle = angle + index * ((2 * Math.PI) / innerTotal)
-        const x = Math.cos(iconAngle) * 120 // Radio de la órbita interna
-        const y = Math.sin(iconAngle) * 120
-
-        const iconElement = icon as HTMLElement
-        iconElement.style.transform = `translate(${x}px, ${y}px)`
-      })
-
-      // Animar la órbita externa (dirección opuesta)
-      outerIcons.forEach((icon, index) => {
-        const iconAngle = -angle + index * ((2 * Math.PI) / outerTotal)
-        const x = Math.cos(iconAngle) * 200 // Radio de la órbita externa
-        const y = Math.sin(iconAngle) * 200
-
-        const iconElement = icon as HTMLElement
-        iconElement.style.transform = `translate(${x}px, ${y}px)`
-      })
-
-      animationRef.current = requestAnimationFrame(animate)
-    }
-
-    animate()
-
-    return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current)
-      }
-    }
+    return () => clearInterval(interval)
   }, [])
 
+  const integrations = [
+    { name: "Google Drive", logo: "/google-drive-logo.png", distance: 120, angle: 0 },
+    { name: "Gmail", logo: "/gmail-logo.png", distance: 120, angle: 45 },
+    { name: "Video Call", logo: "/generic-video-call-logo.png", distance: 120, angle: 90 },
+    { name: "Slack", logo: "/slack-logo.png", distance: 120, angle: 135 },
+    { name: "Notion", logo: "/notion-logo.png", distance: 120, angle: 180 },
+    { name: "Asana", logo: "/asana-logo.png", distance: 120, angle: 225 },
+    { name: "Dropbox", logo: "/dropbox-logo.png", distance: 120, angle: 270 },
+    { name: "Salesforce", logo: "/salesforce-logo.png", distance: 120, angle: 315 },
+  ]
+
   return (
-    <div className="relative h-[450px] w-[450px] mx-auto" ref={containerRef}>
-      {/* Círculos de fondo */}
-      <div className="absolute inset-0 rounded-full border-2 border-blue-100 opacity-30"></div>
-      <div className="absolute inset-[60px] rounded-full border-2 border-blue-200 opacity-50"></div>
-      <div className="absolute inset-[-50px] rounded-full border-2 border-blue-100 opacity-30"></div>
-
-      {/* Logo central */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-24 w-24 rounded-full bg-white shadow-lg flex items-center justify-center z-10">
-        <Image src="/app-logo-icon.png" alt="Bravilo" width={60} height={60} className="h-16 w-16 object-contain" />
+    <div className="relative h-[400px] w-[400px]">
+      <div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-primary/10 p-4">
+        <Image src="/app-logo-icon.png" alt="Bravilo" width={48} height={48} className="h-full w-full" />
       </div>
+      {integrations.map((integration, index) => {
+        const angle = ((integration.angle + rotation) * Math.PI) / 180
+        const x = integration.distance * Math.cos(angle)
+        const y = integration.distance * Math.sin(angle)
 
-      {/* Íconos de integración - Órbita interna */}
-      <div className="absolute inset-0">
-        {innerIntegrations.map((integration, index) => (
+        return (
           <div
-            key={`inner-${index}`}
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-12 w-12 rounded-full bg-white shadow-md flex items-center justify-center inner-orbit-icon transition-transform duration-300 hover:scale-110 z-[5]"
+            key={index}
+            className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-full bg-white p-2 shadow-md transition-all duration-300"
             style={{
-              transform: `translate(${Math.cos(index * ((2 * Math.PI) / innerIntegrations.length)) * 120}px, ${Math.sin(index * ((2 * Math.PI) / innerIntegrations.length)) * 120}px)`,
+              transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
             }}
           >
             <Image
               src={integration.logo || "/placeholder.svg"}
               alt={integration.name}
-              width={28}
-              height={28}
-              className="h-7 w-7 object-contain"
+              width={32}
+              height={32}
+              className="h-8 w-8 object-contain"
             />
           </div>
-        ))}
-      </div>
-
-      {/* Íconos de integración - Órbita externa */}
-      <div className="absolute inset-0">
-        {outerIntegrations.map((integration, index) => (
-          <div
-            key={`outer-${index}`}
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow-md flex items-center justify-center outer-orbit-icon transition-transform duration-300 hover:scale-110"
-            style={{
-              transform: `translate(${Math.cos(index * ((2 * Math.PI) / outerIntegrations.length)) * 200}px, ${Math.sin(index * ((2 * Math.PI) / outerIntegrations.length)) * 200}px)`,
-            }}
-          >
-            <Image
-              src={integration.logo || "/placeholder.svg"}
-              alt={integration.name}
-              width={28}
-              height={28}
-              className="h-7 w-7 object-contain"
-            />
-          </div>
-        ))}
-      </div>
+        )
+      })}
     </div>
   )
 }
