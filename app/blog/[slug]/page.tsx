@@ -1,137 +1,150 @@
-import type { Metadata } from "next"
-import { getBlogPostBySlug, getRelatedBlogPosts } from "@/lib/blog"
-import BlogContent from "@/components/blog-content"
-import Link from "next/link"
 import Image from "next/image"
+import Link from "next/link"
+import { notFound } from "next/navigation"
+import { getBlogPostBySlug } from "@/lib/get-blog-post"
 import { ArrowLeft } from "lucide-react"
-import { Header } from "@/components/header"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { getAllBlogPosts } from "@/lib/get-blog-posts"
+import Markdown from "react-markdown"
 
+export async function generateStaticParams() {
+  const posts = await getAllBlogPosts()
+  return posts.map((post) => ({
+    slug: post.slug,
+  }))
+}
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string } }) {
   const post = await getBlogPostBySlug(params.slug)
-  
+
   if (!post) {
     return {
-      title: "Artículo no encontrado",
-      description: "Lo sentimos, el artículo que estás buscando no existe o ha sido movido."
+      title: "Artículo no encontrado | Bravilo",
+      description: "El artículo que buscas no existe o ha sido movido.",
     }
   }
 
   return {
-    title: post.title,
+    title: `${post.title} | Bravilo Blog`,
     description: post.description,
-    keywords: post.keywords
+    keywords: post.keywords,
   }
 }
 
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = await getBlogPostBySlug(params.slug)
-  const relatedPosts = await getRelatedBlogPosts(params.slug)
 
   if (!post) {
-    return (
-      
-      <div className="container mx-auto px-4 py-24 text-center">
-        <h1 className="text-4xl font-bold mb-6">Artículo no encontrado</h1>
-        <p className="text-gray-600 mb-8 max-w-md mx-auto">
-          Lo sentimos, el artículo que estás buscando no existe o ha sido movido.
-        </p>
-        <Link
-          href="/blog"
-          className="inline-flex h-10 items-center justify-center rounded-md bg-blue-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-blue-700"
-        >
-          Volver al blog
-        </Link>
-      </div>
-    )
+    notFound()
   }
 
+  // Get related posts (excluding current post)
+  const allPosts = await getAllBlogPosts()
+  const relatedPosts = allPosts
+    .filter((p) => p.slug !== post.slug)
+    .sort(() => 0.5 - Math.random()) // Simple random shuffle
+    .slice(0, 3) // Get 3 random posts
+
   return (
-    <>
-      <Header /><br /><br />
-      <div className="bg-blue-50 py-8">
-        <div className="container px-4 mx-auto">
-          <Link href="/blog" className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6">
-            <ArrowLeft className="mr-2 h-4 w-4" /> Volver al blog
-          </Link>
-        </div>
-      </div>
+    <main className="flex-1">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-b from-gray-50 to-white py-12 md:py-16">
+        <div className="container">
+          <div className="mx-auto max-w-4xl">
+            <Link
+              href="/blog"
+              className="mb-6 inline-flex items-center text-sm font-medium text-primary hover:underline"
+            >
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Volver al blog
+            </Link>
 
-      <article className="py-8 md:py-12">
-        <div className="container px-4 mx-auto">
-          <div className="max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-bold mb-6">{post.title}</h1>
-
-            <div className="flex flex-wrap gap-2 mb-8">
-              {post.keywords.map((keyword) => (
-                <span key={keyword} className="bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full">
+            <div className="mb-4 flex items-center gap-2">
+              {post.keywords.slice(0, 1).map((keyword) => (
+                <Badge key={keyword} variant="secondary" className="px-3 py-1 text-sm">
                   {keyword}
-                </span>
+                </Badge>
               ))}
             </div>
 
-            {post.coverImage && (
-              <div className="relative h-64 md:h-96 w-full mb-8 rounded-xl overflow-hidden">
-                <Image
-                  src={post.coverImage}
-                  alt={post.title}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-            )}
+            <h1 className="mb-6 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl lg:text-5xl">
+              {post.title}
+            </h1>
 
-            <BlogContent content={post.content} />
-
-            <div className="mt-12 p-6 bg-blue-50 rounded-xl">
-              <h2 className="text-xl font-bold mb-4">¿Querés saber más sobre este tema?</h2>
-              <p className="text-gray-700 mb-6">
-                En Bravilo podemos ayudarte a implementar soluciones de IA adaptadas a tu negocio. Agendá una demo
-                personalizada con nuestro equipo.
-              </p>
-              <Link
-                href="/contacto"
-                className="inline-flex h-10 items-center justify-center rounded-md bg-blue-600 px-6 text-sm font-medium text-white shadow transition-colors hover:bg-blue-700"
-              >
-                Agendar Demo
-              </Link>
-            </div>
+            <p className="text-lg text-gray-700 md:text-xl">{post.description}</p>
           </div>
         </div>
-      </article>
+      </section>
 
-      <section className="py-12 bg-gray-50">
-        <div className="container px-4 mx-auto">
-          <h2 className="text-2xl font-bold mb-8 text-center">Artículos relacionados</h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      {/* Featured Image */}
+      <section className="container py-8">
+        <div className="mx-auto max-w-4xl">
+          <div className="relative aspect-video w-full overflow-hidden rounded-xl">
+            <Image
+              src={post.coverImage || "/placeholder.svg"}
+              alt={post.title}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Content */}
+      <section className="container py-8">
+        <div className="mx-auto max-w-3xl">
+          <article className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-p:text-gray-700 prose-a:text-primary">
+            <Markdown>{post.content}</Markdown>
+          </article>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="container py-16">
+        <div className="mx-auto max-w-4xl overflow-hidden rounded-2xl bg-gradient-to-r from-primary/80 to-primary p-8 md:p-12">
+          <div className="text-center">
+            <h2 className="mb-4 text-2xl font-bold text-white md:text-3xl">¿Querés implementar IA en tu empresa?</h2>
+            <p className="mb-8 text-lg text-white/90">
+              Agendá una consultoría gratuita y descubrí cómo la inteligencia artificial puede transformar tu negocio.
+            </p>
+            <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90">
+              Agendar consultoría gratuita
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Posts */}
+      <section className="container py-16 bg-gray-50">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="mb-8 text-2xl font-bold text-gray-900 md:text-3xl">Artículos relacionados</h2>
+
+          <div className="grid gap-8 md:grid-cols-3">
             {relatedPosts.map((relatedPost) => (
-              <div key={relatedPost.slug} className="bg-white border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <div className="relative h-40 w-full">
+              <Link
+                key={relatedPost.slug}
+                href={`/blog/${relatedPost.slug}`}
+                className="group flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white transition-all hover:shadow-md"
+              >
+                <div className="relative h-48 overflow-hidden">
                   <Image
-                    src={relatedPost.coverImage}
+                    src={relatedPost.coverImage || "/placeholder.svg"}
                     alt={relatedPost.title}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform group-hover:scale-105"
                   />
                 </div>
-                <div className="p-4">
-                  <h3 className="font-bold mb-2 line-clamp-2">{relatedPost.title}</h3>
-                  <p className="text-sm text-gray-600 mb-3 line-clamp-2">
-                    {relatedPost.description}
-                  </p>
-                  <Link 
-                    href={`/blog/${relatedPost.slug}`}
-                    className="text-blue-600 text-sm font-medium hover:text-blue-800"
-                  >
-                    Leer más
-                  </Link>
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="mb-2 text-lg font-bold text-gray-900 group-hover:text-primary">{relatedPost.title}</h3>
+                  <p className="text-sm text-gray-700">{relatedPost.description.substring(0, 120)}...</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
-    </>
+    </main>
   )
 }

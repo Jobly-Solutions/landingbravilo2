@@ -1,89 +1,75 @@
-import type { Metadata } from "next"
-import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight } from "lucide-react"
-import { getAllBlogPosts } from "@/lib/blog"
-import BlogCard from "@/components/blog-card"
-import HeroSection from "@/components/hero-section" 
-import { Header } from "@/components/header" 
-export const metadata: Metadata = {
-  title: "Blog de Bravilo | Inteligencia Artificial para tu negocio",
-  description:
-    "Descubrí cómo la inteligencia artificial puede transformar tu negocio con consejos prácticos, casos de éxito y tendencias del mercado.",
+import Link from "next/link"
+import { getAllBlogPosts } from "@/lib/get-blog-posts"
+import { Badge } from "@/components/ui/badge"
+
+export const metadata = {
+  title: "Blog | Bravilo",
+  description: "Artículos sobre inteligencia artificial, automatización y optimización de procesos para PyMEs",
 }
 
 export default async function BlogPage() {
   const posts = await getAllBlogPosts()
 
+  // Sort posts by date (newest first)
+  const sortedPosts = [...posts].sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime())
+
   return (
-    <>
-    <Header /><br /><br /><br />
-      {/* <HeroSection
-        title="Blog de Bravilo"
-        subtitle="Descubrí cómo la inteligencia artificial puede transformar tu negocio con consejos prácticos, casos de éxito y tendencias del mercado."
-      /> */}
-
-      <section className="py-12 md:py-16">
-        <div className="container px-4 mx-auto">
-          {/* Featured Post */}
-          {posts.length > 0 && (
-            <div className="mb-16">
-              <div className="grid md:grid-cols-2 gap-8 items-center bg-blue-50 rounded-xl overflow-hidden">
-                <div className="p-8 md:p-12">
-                  <div className="inline-block px-3 py-1 mb-4 text-sm font-medium bg-blue-100 text-blue-700 rounded-full">
-                    Destacado
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                    <Link href={`/blog/${posts[0].slug}`} className="hover:text-blue-600 transition-colors">
-                      {posts[0].title}
-                    </Link>
-                  </h2>
-                  <p className="text-gray-600 mb-6 line-clamp-3">{posts[0].description}</p>
-                  <Link
-                    href={`/blog/${posts[0].slug}`}
-                    className="inline-flex items-center text-blue-600 font-medium hover:text-blue-800"
-                  >
-                    Leer artículo <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </div>
-                <div className="relative h-64 md:h-full w-full">
-                  <Image
-                    src={posts[0].coverImage || "/placeholder.svg?height=400&width=600"}
-                    alt={posts[0].title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* All Posts */}
-          <h2 className="text-2xl font-bold mb-8">Artículos recientes</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post) => (
-              <BlogCard key={post.slug} post={post} />
-            ))}
+    <main className="flex-1">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-b from-gray-50 to-white py-16 md:py-24">
+        <div className="container">
+          <div className="mx-auto max-w-3xl text-center">
+            <Badge className="mb-4 px-3 py-1 text-sm" variant="outline">
+              BLOG
+            </Badge>
+            <h1 className="mb-6 text-4xl font-bold tracking-tight text-gray-900 md:text-5xl">
+              Inteligencia Artificial para tu negocio
+            </h1>
+            <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-700">
+              Artículos, guías y casos de éxito sobre cómo la IA puede transformar tu empresa
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="py-12 bg-blue-50">
-        <div className="container px-4 mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">
-            ¿Querés saber más sobre cómo la IA puede ayudar a tu negocio?
-          </h2>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Agendá una demo personalizada con nuestro equipo y descubrí cómo Bravilo puede transformar tu empresa.
-          </p>
-          <Link
-            href="/contacto"
-            className="inline-flex h-10 items-center justify-center rounded-md bg-blue-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-blue-700"
-          >
-            Agendar Demo
-          </Link>
+      {/* Blog Posts Grid */}
+      <section className="container py-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {sortedPosts.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="group flex flex-col overflow-hidden rounded-lg border border-gray-200 transition-all hover:shadow-md"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={post.coverImage || "/placeholder.svg"}
+                    alt={post.title}
+                    fill
+                    className="object-cover transition-transform group-hover:scale-105"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <h2 className="mb-2 text-xl font-bold text-gray-900 group-hover:text-primary">{post.title}</h2>
+                  <p className="mb-6 flex-1 text-base text-gray-700">{post.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {post.keywords.slice(0, 3).map((keyword) => (
+                      <span
+                        key={keyword}
+                        className="inline-block rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-700"
+                      >
+                        {keyword}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
-    </>
+    </main>
   )
 }

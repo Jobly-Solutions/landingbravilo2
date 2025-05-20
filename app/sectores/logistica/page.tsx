@@ -1,204 +1,421 @@
 import Image from "next/image"
-import HeroSection from "@/components/hero-section"
-import CTAButton from "@/components/cta-button"
-import { Header } from "@/components/header"
+import Link from "next/link"
+import { ChevronLeft, Check, Map, Package, BarChart, ArrowRight, ChevronRight } from "lucide-react"
+
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 
 export default function LogisticaPage() {
+  // Casos de uso específicos para logística
+  const casosDeUso = [
+    {
+      titulo: "Optimización de rutas",
+      descripcion: "Automatiza la planificación de rutas, reduciendo tiempos de entrega y costos de combustible.",
+      icono: <Map className="h-5 w-5 text-primary" />,
+    },
+    {
+      titulo: "Gestión de inventario",
+      descripcion:
+        "Controla automáticamente los niveles de stock, predice necesidades futuras y optimiza el almacenamiento.",
+      icono: <Package className="h-5 w-5 text-primary" />,
+    },
+    {
+      titulo: "Análisis de rendimiento",
+      descripcion: "Obtén insights valiosos sobre el rendimiento de tu flota, conductores y procesos logísticos.",
+      icono: <BarChart className="h-5 w-5 text-primary" />,
+    },
+  ]
+
+  // Beneficios específicos para logística
+  const beneficios = [
+    "Reducción del 30% en costos de combustible",
+    "Disminución del 25% en tiempos de entrega",
+    "Mejora del 40% en la precisión del inventario",
+    "Aumento del 35% en la satisfacción del cliente",
+    "Optimización del 45% en la utilización de vehículos",
+    "Reducción del 20% en costos operativos generales",
+  ]
+
   return (
-    <>
-      <Header />
-      <main className="pt-16">
-        <div className="text-center px-4 py-8 md:py-12">
-          <h1 className="text-3xl md:text-4xl font-bold text-[#0071E3] mb-4">
-            Soluciones para Logística
-          </h1>
-          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-6">
-            Automatiza la coordinación de entregas, seguimiento y comunicación con clientes para optimizar tus operaciones logísticas.
-          </p>
-          <CTAButton text="Solicitar Demo" className="w-full md:w-auto" />
+    <div className="flex min-h-screen flex-col bg-white">
+      <header className="container z-40 flex h-20 items-center justify-between py-6">
+        <div className="flex items-center gap-2">
+          <Link href="/">
+            <div className="flex items-center gap-2">
+              <Image src="/app-logo-icon.png" alt="Bravilo Logo" width={32} height={32} className="h-8 w-8" />
+              <span className="text-xl font-bold text-primary">Bravilo</span>
+            </div>
+          </Link>
         </div>
+        <nav className="hidden gap-6 md:flex">
+          <Link href="/" className="text-sm font-medium text-gray-600 hover:text-primary">
+            Inicio
+          </Link>
+          <Link href="/scouts" className="text-sm font-medium text-gray-600 hover:text-primary">
+            Scouts
+          </Link>
+          <Link href="/sectores" className="text-sm font-medium text-primary">
+            Sectores
+          </Link>
+          <Link href="#" className="text-sm font-medium text-gray-600 hover:text-primary">
+            Precios
+          </Link>
+        </nav>
+        <div className="flex items-center gap-4">
+          <Link href="#" className="hidden text-sm font-medium text-gray-600 hover:text-primary md:block">
+            Contacto
+          </Link>
+          <Button variant="outline" className="hidden md:inline-flex">
+            Iniciar sesión
+          </Button>
+          <Button>Registrarse</Button>
+        </div>
+      </header>
 
-        <div className="px-4 py-8">
-          <div className="flex justify-center mb-12">
-            <div className="relative w-[200px] h-[200px] md:w-[400px] md:h-[400px]">
-              <Image
-                src="/logis.png"
-                alt="Soluciones para logística"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
-              Optimiza tus operaciones logísticas con IA
-            </h2>
-            
-            <div className="space-y-6">
-              <div className="bg-white rounded-lg p-4 shadow-sm">
-                <div className="flex gap-4 items-start">
-                  <div className="bg-blue-100 rounded-full p-2 md:p-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 md:h-6 md:w-6 text-blue-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg md:text-xl font-semibold mb-2">Coordinación eficiente de rutas</h3>
-                    <p className="text-sm md:text-base text-gray-600">
-                      Optimiza la planificación de rutas y horarios de entrega para maximizar la eficiencia de tus recursos.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-lg p-4 shadow-sm">
-                <div className="flex gap-4 items-start">
-                  <div className="bg-blue-100 rounded-full p-2 md:p-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 md:h-6 md:w-6 text-blue-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg md:text-xl font-semibold mb-2">Notificaciones automáticas</h3>
-                    <p className="text-sm md:text-base text-gray-600">
-                      Mantén a tus clientes informados en tiempo real sobre el estado y ubicación de sus envíos.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-lg p-4 shadow-sm">
-                <div className="flex gap-4 items-start">
-                  <div className="bg-blue-100 rounded-full p-2 md:p-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 md:h-6 md:w-6 text-blue-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg md:text-xl font-semibold mb-2">Resolución de incidencias</h3>
-                    <p className="text-sm md:text-base text-gray-600">
-                      Gestiona y resuelve problemas comunes en tiempo real, mejorando la satisfacción del cliente.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 text-center">
-              <CTAButton text="Optimiza tu logística" className="w-full md:w-auto" />
-            </div>
+      <main className="flex-1">
+        {/* Breadcrumb */}
+        <div className="container py-4">
+          <div className="flex items-center text-sm text-gray-500">
+            <Link href="/sectores" className="flex items-center hover:text-primary">
+              <ChevronLeft className="mr-1 h-4 w-4" />
+              Volver a sectores
+            </Link>
           </div>
         </div>
 
-        <div className="bg-gray-50 px-4 py-12 mt-12">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
-              Nuestros scouts para tu empresa
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="relative h-16 w-16">
-                    <Image src="/lia.png" alt="Lía" fill className="object-contain" />
-                  </div>
-                  <h3 className="text-xl font-semibold">Lía</h3>
-                </div>
-                <p className="text-sm md:text-base text-gray-600">
-                  Responde consultas sobre envíos, tiempos de entrega y estado de pedidos las 24 horas.
+        {/* Hero Section */}
+        <section className="bg-gradient-to-b from-green-50 to-white py-16 md:py-24">
+          <div className="container">
+            <div className="grid gap-12 md:grid-cols-2 items-center">
+              <div>
+                <Badge className="mb-4 px-3 py-1 text-sm" variant="outline">
+                  SECTOR LOGÍSTICO
+                </Badge>
+                <h1 className="mb-6 text-4xl font-bold tracking-tight text-gray-900 md:text-5xl">
+                  Optimiza tu operación logística con IA
+                </h1>
+                <p className="mb-8 text-lg text-gray-700">
+                  Nuestros scouts de IA están diseñados específicamente para el sector logístico, automatizando rutas,
+                  mejorando la gestión de inventario y optimizando toda tu cadena de suministro.
                 </p>
+                <div className="flex flex-col sm:flex-row items-start gap-4">
+                  <Button size="lg" className="h-12 px-8">
+                    Comenzar prueba gratuita
+                  </Button>
+                  <Button variant="outline" size="lg" className="h-12 px-8 bg-transparent">
+                    Ver demo <ChevronRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
               </div>
-
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="relative h-16 w-16">
-                    <Image src="/simon.png" alt="Simón" fill className="object-contain" />
-                  </div>
-                  <h3 className="text-xl font-semibold">Simón</h3>
+              <div className="relative">
+                <div className="absolute -inset-4 bg-green-100 rounded-3xl blur-3xl opacity-30"></div>
+                <div className="relative rounded-xl overflow-hidden">
+                  <Image
+                    src="/placeholder.svg?height=400&width=600&query=logistics warehouse with workers and technology"
+                    alt="Logística con IA"
+                    width={600}
+                    height={400}
+                    className="w-full h-auto object-cover rounded-xl"
+                  />
                 </div>
-                <p className="text-sm md:text-base text-gray-600">
-                  Gestiona y prioriza pedidos para optimizar las rutas de entrega.
-                </p>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="relative h-16 w-16">
-                    <Image src="/vera.png" alt="Vera" fill className="object-contain" />
-                  </div>
-                  <h3 className="text-xl font-semibold">Vera</h3>
-                </div>
-                <p className="text-sm md:text-base text-gray-600">
-                  Coordina la documentación de envíos y gestiona los comprobantes de entrega.
-                </p>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="relative h-16 w-16">
-                    <Image src="/tomi.png" alt="Tomi" fill className="object-contain" />
-                  </div>
-                  <h3 className="text-xl font-semibold">Tomi</h3>
-                </div>
-                <p className="text-sm md:text-base text-gray-600">
-                  Programa y coordina las entregas según disponibilidad y rutas óptimas.
-                </p>
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div className="px-4 py-12">
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-white rounded-lg shadow-sm p-6 md:p-8">
-              <h2 className="text-xl md:text-2xl font-bold mb-6 text-center">
-                Caso de éxito: Express Logistics
+        {/* Casos de Uso Section */}
+        <section className="container py-16">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-12 text-center">
+              <Badge className="mb-4 px-3 py-1 text-sm" variant="outline">
+                CASOS DE USO
+              </Badge>
+              <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
+                Cómo Bravilo transforma el sector logístico
               </h2>
-              <blockquote className="text-gray-700 italic mb-6 text-sm md:text-base">
-                "Desde que implementamos los scouts de Bravilo, redujimos un 30% los errores en la coordinación de
-                entregas y aumentamos la satisfacción de nuestros clientes en un 45%. La comunicación automática sobre el
-                estado de los envíos ha sido clave para mejorar nuestra operación."
-              </blockquote>
-              <div className="flex items-center">
-                <div className="relative h-12 w-12 rounded-full overflow-hidden mr-4">
-                  <Image src="/ale-logistica.png" alt="Testimonio" fill className="object-cover" />
+              <p className="mx-auto max-w-2xl text-lg text-gray-700">
+                Nuestros scouts de IA están diseñados para resolver los desafíos específicos del sector logístico,
+                ofreciendo soluciones personalizadas que maximizan la eficiencia y los resultados.
+              </p>
+            </div>
+
+            <div className="grid gap-8 md:grid-cols-3">
+              {casosDeUso.map((caso, index) => (
+                <div key={index} className="rounded-xl bg-white p-8 shadow-sm border border-gray-100">
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-green-50 border border-green-100">
+                    {caso.icono}
+                  </div>
+                  <h3 className="mb-4 text-xl font-bold text-gray-900">{caso.titulo}</h3>
+                  <p className="text-base text-gray-700">{caso.descripcion}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Scouts Recomendados Section */}
+        <section className="container py-16 bg-gray-50">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-12 text-center">
+              <Badge className="mb-4 px-3 py-1 text-sm" variant="outline">
+                SCOUTS RECOMENDADOS
+              </Badge>
+              <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
+                Los mejores scouts para logística
+              </h2>
+              <p className="mx-auto max-w-2xl text-lg text-gray-700">
+                Estos scouts están especialmente diseñados para potenciar tu operación logística, automatizando tareas y
+                mejorando resultados.
+              </p>
+            </div>
+
+            <div className="grid gap-8 md:grid-cols-2">
+              <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-green-50 to-green-100 p-6 transition-all hover:shadow-lg">
+                <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-green-200 opacity-50 blur-3xl transition-all group-hover:opacity-70"></div>
+                <div className="relative">
+                  <div className="mb-6 h-16 w-16 overflow-hidden rounded-full">
+                    <Image
+                      src="/scout-simon.png"
+                      alt="Simón Scout"
+                      width={64}
+                      height={64}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <h3 className="mb-2 text-xl font-bold text-gray-900">Simón</h3>
+                  <p className="mb-2 text-sm font-medium text-green-600">Scout de operaciones</p>
+                  <p className="mb-6 text-base text-gray-700">
+                    Perfecto para la gestión de flotas, optimización de rutas y coordinación de entregas. Automatiza
+                    procesos operativos y mejora la eficiencia de tu cadena logística.
+                  </p>
+                  <Link href="/scouts/simon">
+                    <Button variant="outline" size="sm" className="group-hover:bg-green-600 group-hover:text-white">
+                      Ver detalles <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-purple-50 to-purple-100 p-6 transition-all hover:shadow-lg">
+                <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-purple-200 opacity-50 blur-3xl transition-all group-hover:opacity-70"></div>
+                <div className="relative">
+                  <div className="mb-6 h-16 w-16 overflow-hidden rounded-full">
+                    <Image
+                      src="/scout-vera.png"
+                      alt="Vera Scout"
+                      width={64}
+                      height={64}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <h3 className="mb-2 text-xl font-bold text-gray-900">Vera</h3>
+                  <p className="mb-2 text-sm font-medium text-purple-600">Scout de análisis</p>
+                  <p className="mb-6 text-base text-gray-700">
+                    Ideal para el análisis de datos logísticos, predicción de demanda y optimización de inventario.
+                    Automatiza la generación de informes y mejora la toma de decisiones.
+                  </p>
+                  <Link href="/scouts/vera">
+                    <Button variant="outline" size="sm" className="group-hover:bg-purple-600 group-hover:text-white">
+                      Ver detalles <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Beneficios Section */}
+        <section className="container py-16">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-12 text-center">
+              <Badge className="mb-4 px-3 py-1 text-sm" variant="outline">
+                BENEFICIOS
+              </Badge>
+              <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
+                Resultados comprobados en el sector logístico
+              </h2>
+              <p className="mx-auto max-w-2xl text-lg text-gray-700">
+                Nuestros clientes del sector logístico han experimentado mejoras significativas en sus operaciones y
+                resultados gracias a nuestros scouts de IA.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {beneficios.map((beneficio, index) => (
+                <div
+                  key={index}
+                  className="flex items-start gap-4 rounded-lg border border-gray-200 bg-white p-6 shadow-sm"
+                >
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-green-100">
+                    <Check className="h-5 w-5 text-primary" />
+                  </div>
+                  <p className="text-base font-medium text-gray-700">{beneficio}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonial Section */}
+        <section className="container py-16 bg-gray-50">
+          <div className="mx-auto max-w-4xl">
+            <div className="rounded-xl bg-white p-8 shadow-sm">
+              <div className="mb-6 flex">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="45"
+                  height="36"
+                  fill="none"
+                  viewBox="0 0 45 36"
+                  className="text-primary/20"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M13.304 0C6.027 0 0 6.04 0 13.333c0 7.292 6.027 13.333 13.304 13.333 15.965 0 6.385 9.334 0 9.334v-2.667C21.286 33.333 45 26.667 45 13.333 45 6.04 38.973 0 31.696 0H13.304Z"
+                  />
+                </svg>
+              </div>
+              <p className="mb-8 text-xl text-gray-700">
+                "Desde que implementamos Bravilo en nuestra empresa de logística, hemos reducido los costos operativos
+                en un 20% y mejorado los tiempos de entrega en un 25%. La optimización automática de rutas y la gestión
+                inteligente de inventario han sido un cambio revolucionario para nuestro negocio."
+              </p>
+              <div className="flex items-center gap-4">
+                <div className="h-12 w-12 rounded-full bg-gray-200">
+                  <Image
+                    src="/placeholder.svg?height=48&width=48&query=professional woman logistics manager headshot"
+                    alt="Laura Martínez"
+                    width={48}
+                    height={48}
+                    className="h-full w-full rounded-full object-cover"
+                  />
                 </div>
                 <div>
-                  <p className="font-semibold text-sm md:text-base">Alejandro Méndez</p>
-                  <p className="text-xs md:text-sm text-gray-600">Director de Operaciones, Express Logistics</p>
+                  <p className="font-medium text-gray-900">Laura Martínez</p>
+                  <p className="text-sm text-gray-500">Directora de Operaciones, Logística Express</p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div className="px-4 py-12 text-center bg-gray-50">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">
-            ¿Listo para optimizar tu logística?
-          </h2>
-          <CTAButton text="Solicitar demo personalizada" className="w-full md:w-auto text-base md:text-lg px-6 md:px-8 py-3" />
-        </div>
+        {/* CTA Section */}
+        <section className="container py-16">
+          <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl bg-gradient-to-r from-green-500 to-green-600 p-8 md:p-12">
+            <div className="text-center">
+              <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
+                Potencia tu operación logística con Bravilo
+              </h2>
+              <p className="mx-auto mb-8 max-w-2xl text-lg text-white/90">
+                Comienza hoy mismo con una prueba gratuita y descubre cómo nuestros scouts pueden transformar tu cadena
+                de suministro
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button size="lg" variant="secondary" className="bg-white text-green-600 hover:bg-white/90">
+                  Comenzar prueba gratuita
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white text-white bg-transparent hover:bg-white/10"
+                >
+                  Agendar una demo <ChevronRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
-    </>
+
+      <footer className="bg-gray-900 py-12 text-gray-400">
+        <div className="container">
+          <div className="grid gap-8 md:grid-cols-4">
+            <div>
+              <div className="flex items-center gap-2">
+                <Image src="/app-logo-icon.png" alt="Bravilo Logo" width={32} height={32} className="h-8 w-8" />
+                <Image src="/bravilo-text-white.png" alt="Bravilo" width={100} height={24} className="h-6 w-auto" />
+              </div>
+              <p className="mt-4 text-sm">© 2023 Bravilo. Todos los derechos reservados.</p>
+            </div>
+            <div>
+              <h3 className="mb-4 text-lg font-medium text-white">Producto</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link href="/scouts" className="hover:text-white">
+                    Scouts
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/sectores" className="hover:text-white">
+                    Sectores
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Precios
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Integraciones
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="mb-4 text-lg font-medium text-white">Recursos</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Documentación
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Guías
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Webinars
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="mb-4 text-lg font-medium text-white">Empresa</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Sobre nosotros
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Contacto
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Términos de servicio
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Política de privacidad
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
   )
 }

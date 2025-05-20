@@ -1,41 +1,41 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronLeft, Check, FileText, Calendar, MessageSquare, ArrowRight, ChevronRight } from "lucide-react"
+import { ChevronLeft, Check, Home, Users, BarChart, ArrowRight, ChevronRight } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 
-export default function EstudiosJuridicosPage() {
-  // Casos de uso específicos para estudios jurídicos
+export default function InmobiliariaPage() {
+  // Casos de uso específicos para inmobiliarias
   const casosDeUso = [
     {
-      titulo: "Gestión de expedientes",
+      titulo: "Captación de propiedades",
       descripcion:
-        "Automatiza el seguimiento de expedientes, plazos y documentación, reduciendo errores y optimizando tiempos.",
-      icono: <FileText className="h-5 w-5 text-primary" />,
+        "Automatiza el proceso de captación de propiedades, desde la identificación de oportunidades hasta el contacto con propietarios.",
+      icono: <Home className="h-5 w-5 text-primary" />,
     },
     {
-      titulo: "Agendamiento de audiencias",
+      titulo: "Gestión de clientes",
       descripcion:
-        "Coordina automáticamente audiencias, reuniones y plazos procesales, evitando superposiciones y olvidos.",
-      icono: <Calendar className="h-5 w-5 text-primary" />,
+        "Centraliza la información de clientes, automatiza seguimientos y personaliza la comunicación según sus preferencias.",
+      icono: <Users className="h-5 w-5 text-primary" />,
     },
     {
-      titulo: "Atención a clientes",
+      titulo: "Análisis de mercado",
       descripcion:
-        "Responde consultas frecuentes, actualiza a clientes sobre el estado de sus casos y programa reuniones.",
-      icono: <MessageSquare className="h-5 w-5 text-primary" />,
+        "Obtén insights valiosos sobre tendencias del mercado inmobiliario, precios y oportunidades de inversión.",
+      icono: <BarChart className="h-5 w-5 text-primary" />,
     },
   ]
 
-  // Beneficios específicos para estudios jurídicos
+  // Beneficios específicos para inmobiliarias
   const beneficios = [
-    "Reducción del 45% en tiempo dedicado a tareas administrativas",
-    "Disminución del 30% en errores de seguimiento de plazos",
-    "Aumento del 35% en la satisfacción del cliente",
-    "Mejora del 40% en la organización de documentos legales",
-    "Incremento del 25% en la capacidad de atención de casos",
-    "Optimización del 50% en el proceso de facturación",
+    "Reducción del 40% en tiempo de gestión administrativa",
+    "Aumento del 25% en la tasa de conversión de leads",
+    "Mejora del 30% en la satisfacción del cliente",
+    "Reducción del 50% en el tiempo de respuesta a consultas",
+    "Incremento del 20% en el número de propiedades captadas",
+    "Optimización del 35% en el proceso de cierre de ventas",
   ]
 
   return (
@@ -86,19 +86,20 @@ export default function EstudiosJuridicosPage() {
         </div>
 
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-purple-50 to-white py-16 md:py-24">
+        <section className="bg-gradient-to-b from-blue-50 to-white py-16 md:py-24">
           <div className="container">
             <div className="grid gap-12 md:grid-cols-2 items-center">
               <div>
                 <Badge className="mb-4 px-3 py-1 text-sm" variant="outline">
-                  SECTOR JURÍDICO
+                  SECTOR INMOBILIARIO
                 </Badge>
                 <h1 className="mb-6 text-4xl font-bold tracking-tight text-gray-900 md:text-5xl">
-                  Transforma tu estudio jurídico con IA
+                  Revoluciona tu agencia inmobiliaria con IA
                 </h1>
                 <p className="mb-8 text-lg text-gray-700">
-                  Nuestros scouts de IA están diseñados específicamente para el sector legal, automatizando tareas
-                  repetitivas, mejorando el seguimiento de casos y optimizando la gestión de clientes.
+                  Nuestros scouts de IA están diseñados específicamente para el sector inmobiliario, automatizando
+                  tareas repetitivas, mejorando la captación de clientes y optimizando el proceso de venta de
+                  propiedades.
                 </p>
                 <div className="flex flex-col sm:flex-row items-start gap-4">
                   <Button size="lg" className="h-12 px-8">
@@ -110,11 +111,11 @@ export default function EstudiosJuridicosPage() {
                 </div>
               </div>
               <div className="relative">
-                <div className="absolute -inset-4 bg-purple-100 rounded-3xl blur-3xl opacity-30"></div>
+                <div className="absolute -inset-4 bg-blue-100 rounded-3xl blur-3xl opacity-30"></div>
                 <div className="relative rounded-xl overflow-hidden">
                   <Image
-                    src="/modern-law-office.png"
-                    alt="Estudio jurídico con IA"
+                    src="/modern-real-estate-office.png"
+                    alt="Inmobiliaria con IA"
                     width={600}
                     height={400}
                     className="w-full h-auto object-cover rounded-xl"
@@ -133,10 +134,10 @@ export default function EstudiosJuridicosPage() {
                 CASOS DE USO
               </Badge>
               <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
-                Cómo Bravilo transforma el sector jurídico
+                Cómo Bravilo transforma el sector inmobiliario
               </h2>
               <p className="mx-auto max-w-2xl text-lg text-gray-700">
-                Nuestros scouts de IA están diseñados para resolver los desafíos específicos del sector legal,
+                Nuestros scouts de IA están diseñados para resolver los desafíos específicos del sector inmobiliario,
                 ofreciendo soluciones personalizadas que maximizan la eficiencia y los resultados.
               </p>
             </div>
@@ -144,7 +145,7 @@ export default function EstudiosJuridicosPage() {
             <div className="grid gap-8 md:grid-cols-3">
               {casosDeUso.map((caso, index) => (
                 <div key={index} className="rounded-xl bg-white p-8 shadow-sm border border-gray-100">
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-purple-50 border border-purple-100">
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-blue-50 border border-blue-100">
                     {caso.icono}
                   </div>
                   <h3 className="mb-4 text-xl font-bold text-gray-900">{caso.titulo}</h3>
@@ -163,35 +164,35 @@ export default function EstudiosJuridicosPage() {
                 SCOUTS RECOMENDADOS
               </Badge>
               <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
-                Los mejores scouts para estudios jurídicos
+                Los mejores scouts para inmobiliarias
               </h2>
               <p className="mx-auto max-w-2xl text-lg text-gray-700">
-                Estos scouts están especialmente diseñados para potenciar tu estudio jurídico, automatizando tareas y
-                mejorando resultados.
+                Estos scouts están especialmente diseñados para potenciar tu negocio inmobiliario, automatizando tareas
+                y mejorando resultados.
               </p>
             </div>
 
             <div className="grid gap-8 md:grid-cols-2">
-              <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-purple-50 to-purple-100 p-6 transition-all hover:shadow-lg">
-                <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-purple-200 opacity-50 blur-3xl transition-all group-hover:opacity-70"></div>
+              <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 p-6 transition-all hover:shadow-lg">
+                <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-blue-200 opacity-50 blur-3xl transition-all group-hover:opacity-70"></div>
                 <div className="relative">
                   <div className="mb-6 h-16 w-16 overflow-hidden rounded-full">
                     <Image
-                      src="/scout-vera.png"
-                      alt="Vera Scout"
+                      src="/scout-lia.png"
+                      alt="Lia Scout"
                       width={64}
                       height={64}
                       className="h-full w-full object-cover"
                     />
                   </div>
-                  <h3 className="mb-2 text-xl font-bold text-gray-900">Vera</h3>
-                  <p className="mb-2 text-sm font-medium text-purple-600">Scout de análisis</p>
+                  <h3 className="mb-2 text-xl font-bold text-gray-900">Lia</h3>
+                  <p className="mb-2 text-sm font-medium text-blue-600">Scout de ventas y IA</p>
                   <p className="mb-6 text-base text-gray-700">
-                    Perfecta para el análisis de jurisprudencia, investigación legal y preparación de informes.
-                    Automatiza la búsqueda de precedentes y optimiza la preparación de casos.
+                    Perfecta para la captación de clientes, seguimiento de leads y cierre de ventas inmobiliarias.
+                    Automatiza la comunicación con clientes potenciales y optimiza el proceso de venta.
                   </p>
-                  <Link href="/scouts/vera">
-                    <Button variant="outline" size="sm" className="group-hover:bg-purple-600 group-hover:text-white">
+                  <Link href="/scouts/lia">
+                    <Button variant="outline" size="sm" className="group-hover:bg-blue-600 group-hover:text-white">
                       Ver detalles <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
@@ -213,8 +214,8 @@ export default function EstudiosJuridicosPage() {
                   <h3 className="mb-2 text-xl font-bold text-gray-900">Simón</h3>
                   <p className="mb-2 text-sm font-medium text-green-600">Scout de operaciones</p>
                   <p className="mb-6 text-base text-gray-700">
-                    Ideal para la gestión de expedientes, seguimiento de plazos y coordinación de audiencias. Automatiza
-                    procesos administrativos y mejora la eficiencia de tu estudio jurídico.
+                    Ideal para la gestión de propiedades, coordinación de visitas y seguimiento de trámites. Automatiza
+                    procesos operativos y mejora la eficiencia de tu agencia inmobiliaria.
                   </p>
                   <Link href="/scouts/simon">
                     <Button variant="outline" size="sm" className="group-hover:bg-green-600 group-hover:text-white">
@@ -235,10 +236,10 @@ export default function EstudiosJuridicosPage() {
                 BENEFICIOS
               </Badge>
               <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
-                Resultados comprobados en el sector jurídico
+                Resultados comprobados en el sector inmobiliario
               </h2>
               <p className="mx-auto max-w-2xl text-lg text-gray-700">
-                Nuestros clientes del sector legal han experimentado mejoras significativas en sus operaciones y
+                Nuestros clientes del sector inmobiliario han experimentado mejoras significativas en sus operaciones y
                 resultados gracias a nuestros scouts de IA.
               </p>
             </div>
@@ -249,7 +250,7 @@ export default function EstudiosJuridicosPage() {
                   key={index}
                   className="flex items-start gap-4 rounded-lg border border-gray-200 bg-white p-6 shadow-sm"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-purple-100">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-100">
                     <Check className="h-5 w-5 text-primary" />
                   </div>
                   <p className="text-base font-medium text-gray-700">{beneficio}</p>
@@ -279,24 +280,24 @@ export default function EstudiosJuridicosPage() {
                 </svg>
               </div>
               <p className="mb-8 text-xl text-gray-700">
-                "Bravilo ha transformado completamente la forma en que gestionamos nuestros casos. El seguimiento
-                automático de plazos y la organización de expedientes nos ha permitido reducir errores y aumentar
-                nuestra productividad en un 35%. Además, la atención automática a clientes ha mejorado
-                significativamente su satisfacción."
+                "Desde que implementamos Bravilo en nuestra agencia inmobiliaria, hemos visto un aumento del 40% en
+                nuestras ventas. Los scouts automatizan tareas repetitivas, lo que nos permite enfocarnos en lo que
+                realmente importa: cerrar tratos. La capacidad de seguimiento automático de leads ha sido un cambio
+                revolucionario para nuestro negocio."
               </p>
               <div className="flex items-center gap-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200">
                   <Image
-                    src="/professional-lawyer-headshot.png"
-                    alt="Carlos Rodríguez"
+                    src="/professional-woman-headshot.png"
+                    alt="María González"
                     width={48}
                     height={48}
                     className="h-full w-full rounded-full object-cover"
                   />
                 </div>
                 <div>
-                  <p className="font-medium text-gray-900">Carlos Rodríguez</p>
-                  <p className="text-sm text-gray-500">Socio Director, Rodríguez & Asociados</p>
+                  <p className="font-medium text-gray-900">María González</p>
+                  <p className="text-sm text-gray-500">Directora, Inmobiliaria González & Asociados</p>
                 </div>
               </div>
             </div>
@@ -305,17 +306,17 @@ export default function EstudiosJuridicosPage() {
 
         {/* CTA Section */}
         <section className="container py-16">
-          <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl bg-gradient-to-r from-purple-500 to-purple-600 p-8 md:p-12">
+          <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl bg-gradient-to-r from-blue-500 to-blue-600 p-8 md:p-12">
             <div className="text-center">
               <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
-                Potencia tu estudio jurídico con Bravilo
+                Potencia tu agencia inmobiliaria con Bravilo
               </h2>
               <p className="mx-auto mb-8 max-w-2xl text-lg text-white/90">
-                Comienza hoy mismo con una prueba gratuita y descubre cómo nuestros scouts pueden transformar tu
-                práctica legal
+                Comienza hoy mismo con una prueba gratuita y descubre cómo nuestros scouts pueden transformar tu negocio
+                inmobiliario
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button size="lg" variant="secondary" className="bg-white text-purple-600 hover:bg-white/90">
+                <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-white/90">
                   Comenzar prueba gratuita
                 </Button>
                 <Button

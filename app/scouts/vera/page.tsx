@@ -1,157 +1,428 @@
+"use client"
+
 import Image from "next/image"
-import HeroSection from "@/components/hero-section"
-import CTAButton from "@/components/cta-button"
-import { Header } from "@/components/header"
+import Link from "next/link"
+import { ChevronLeft, Check, BarChart, TrendingUp, PieChart, LineChart } from "lucide-react"
 
-export default function VeraPage() {
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+
+export default function VeraScoutPage() {
   return (
-    <>
-      <Header />
-      <main className="pt-16">
-        <div className="text-center px-4 py-8 md:py-12">
-          <h1 className="text-3xl md:text-4xl font-bold text-[#0071E3] mb-4">
-            Vera - Gestión de pedidos
-          </h1>
-          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-6">
-            Recibe pedidos, los organiza, hace cálculos automáticos y coordina entregas o retiros sin intervención humana.
-          </p>
-          <CTAButton text="Agendar Demo" className="w-full md:w-auto" />
+    <div className="flex min-h-screen flex-col bg-white">
+      <header className="container z-40 flex h-20 items-center justify-between py-6">
+        <div className="flex items-center gap-2">
+          <Link href="/">
+            <div className="flex items-center gap-2">
+              <Image src="/app-logo-icon.png" alt="Bravilo Logo" width={32} height={32} className="h-8 w-8" />
+              <span className="text-xl font-bold text-primary">Bravilo</span>
+            </div>
+          </Link>
         </div>
+        <nav className="hidden gap-6 md:flex">
+          <Link href="/" className="text-sm font-medium text-gray-600 hover:text-primary">
+            Inicio
+          </Link>
+          <Link href="/scouts" className="text-sm font-medium text-primary">
+            Scouts
+          </Link>
+          <Link href="#" className="text-sm font-medium text-gray-600 hover:text-primary">
+            Precios
+          </Link>
+          <Link href="#" className="text-sm font-medium text-gray-600 hover:text-primary">
+            Blog
+          </Link>
+        </nav>
+        <div className="flex items-center gap-4">
+          <Link href="#" className="hidden text-sm font-medium text-gray-600 hover:text-primary md:block">
+            Contacto
+          </Link>
+          <Button variant="outline" className="hidden md:inline-flex">
+            Iniciar sesión
+          </Button>
+          <Button>Registrarse</Button>
+        </div>
+      </header>
 
-        <div className="px-4 py-8">
-          <div className="flex justify-center mb-12">
-            <div className="relative w-[200px] h-[200px] md:w-[300px] md:h-[400px]">
-              <Image
-                src="/vera400.png"
-                alt="Vera - Asistente de gestión de pedidos"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
-              Optimiza tu gestión de pedidos
-            </h2>
-            
-            <div className="space-y-6">
-              <div className="bg-white rounded-lg p-4 shadow-sm">
-                <div className="flex gap-4 items-start">
-                  <div className="bg-blue-100 rounded-full p-2 md:p-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 md:h-6 md:w-6 text-blue-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg md:text-xl font-semibold mb-2">Recepción automática de pedidos</h3>
-                    <p className="text-sm md:text-base text-gray-600">
-                      Vera recibe y procesa pedidos desde múltiples canales: WhatsApp, web, email o redes sociales.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-lg p-4 shadow-sm">
-                <div className="flex gap-4 items-start">
-                  <div className="bg-blue-100 rounded-full p-2 md:p-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 md:h-6 md:w-6 text-blue-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg md:text-xl font-semibold mb-2">Cálculos precisos y automáticos</h3>
-                    <p className="text-sm md:text-base text-gray-600">
-                      Calcula precios, descuentos, impuestos y costos de envío sin errores humanos.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-lg p-4 shadow-sm">
-                <div className="flex gap-4 items-start">
-                  <div className="bg-blue-100 rounded-full p-2 md:p-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 md:h-6 md:w-6 text-blue-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg md:text-xl font-semibold mb-2">Coordinación de entregas</h3>
-                    <p className="text-sm md:text-base text-gray-600">
-                      Organiza y programa entregas o retiros, enviando recordatorios automáticos a tus clientes.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 text-center">
-              <CTAButton text="Optimiza tu gestión con Vera" className="w-full md:w-auto" />
-            </div>
+      <main className="flex-1">
+        {/* Breadcrumb */}
+        <div className="container py-4">
+          <div className="flex items-center text-sm text-gray-500">
+            <Link href="/scouts" className="flex items-center hover:text-primary">
+              <ChevronLeft className="mr-1 h-4 w-4" />
+              Volver a todos los scouts
+            </Link>
           </div>
         </div>
 
-        <div className="bg-gray-50 px-4 py-12 mt-12">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
-              Ventajas de automatizar la gestión de pedidos
-            </h2>
+        {/* Hero Section */}
+        <section className="container py-8 md:py-12">
+          <div className="grid gap-8 md:grid-cols-2 items-center">
+            <div>
+              <Badge className="mb-4 px-3 py-1 text-sm" variant="outline">
+                SCOUT DE ANÁLISIS
+              </Badge>
+              <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-900 md:text-5xl">
+                Conoce a <span className="text-purple-600">Vera</span>
+              </h1>
+              <p className="mb-6 text-lg text-gray-700">
+                Vera es tu analista de datos impulsada por IA. Analiza datos, genera reportes, identifica tendencias y
+                envía información valiosa. Transforma datos complejos en insights accionables para tu negocio.
+              </p>
+              <div className="flex flex-wrap gap-4 mb-8">
+                <div className="flex items-center gap-2">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-100">
+                    <BarChart className="h-4 w-4 text-purple-600" />
+                  </div>
+                  <span className="text-sm font-medium">Análisis predictivo</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-100">
+                    <TrendingUp className="h-4 w-4 text-purple-600" />
+                  </div>
+                  <span className="text-sm font-medium">Identificación de tendencias</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-100">
+                    <PieChart className="h-4 w-4 text-purple-600" />
+                  </div>
+                  <span className="text-sm font-medium">Reportes automáticos</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-100">
+                    <LineChart className="h-4 w-4 text-purple-600" />
+                  </div>
+                  <span className="text-sm font-medium">Monitoreo de KPIs</span>
+                </div>
+              </div>
+              <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
+                Comenzar prueba gratuita
+              </Button>
+            </div>
+            <div className="relative">
+              <div className="absolute -inset-4 bg-purple-100 rounded-3xl blur-3xl opacity-30"></div>
+              <div className="relative h-64 w-64 mx-auto overflow-hidden rounded-full bg-gradient-to-br from-purple-100 to-purple-200 p-4">
+                <Image
+                  src="/scout-vera.png"
+                  alt="Vera Scout"
+                  width={250}
+                  height={250}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
 
-            <div className="space-y-6">
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <div className="text-[#0071E3] text-2xl md:text-3xl font-bold mb-3">01</div>
-                <h3 className="text-xl font-semibold mb-2">Reducción de errores</h3>
-                <p className="text-sm md:text-base text-gray-600">
-                  Elimina errores humanos en la toma de pedidos y cálculos, mejorando la satisfacción del cliente.
+        {/* Chat Demo Section */}
+        <section className="container py-12 md:py-16">
+          <div className="mx-auto max-w-4xl">
+            <div className="mb-8 text-center">
+              <Badge className="mb-4 px-3 py-1 text-sm" variant="outline">
+                PRUEBA A VERA
+              </Badge>
+              <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900">
+                Interactúa con Vera en tiempo real
+              </h2>
+              <p className="mx-auto max-w-2xl text-lg text-gray-700">
+                Prueba las capacidades de Vera directamente. Pregúntale sobre análisis de datos, tendencias o cualquier
+                otra consulta analítica.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+              <div className="bg-purple-600 text-white p-4 flex items-center">
+                <div className="h-8 w-8 rounded-full bg-white mr-3 flex items-center justify-center">
+                  <span className="text-purple-600 font-bold">V</span>
+                </div>
+                <h3 className="font-medium">Chat con Vera</h3>
+              </div>
+              <div className="h-[600px] w-full">
+                <iframe
+                  src="https://app.braviloai.com/@scout_vera"
+                  className="w-full h-full border-0"
+                  allow="microphone; camera"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="container py-12 md:py-16 bg-gray-50">
+          <div className="mx-auto max-w-4xl">
+            <div className="mb-12 text-center">
+              <Badge className="mb-4 px-3 py-1 text-sm" variant="outline">
+                CAPACIDADES
+              </Badge>
+              <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900">
+                ¿Qué puede hacer Vera por tu negocio?
+              </h2>
+              <p className="mx-auto max-w-2xl text-lg text-gray-700">
+                Descubre todas las formas en que Vera puede transformar tus datos en decisiones estratégicas
+              </p>
+            </div>
+
+            <div className="grid gap-8 md:grid-cols-2">
+              <div className="bg-white p-6 rounded-xl shadow-sm">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-purple-100">
+                  <BarChart className="h-6 w-6 text-purple-600" />
+                </div>
+                <h3 className="mb-2 text-xl font-bold text-gray-900">Análisis predictivo</h3>
+                <p className="text-gray-700">
+                  Vera utiliza algoritmos avanzados para analizar datos históricos y predecir tendencias futuras.
                 </p>
+                <ul className="mt-4 space-y-2">
+                  <li className="flex items-start gap-2">
+                    <Check className="h-5 w-5 text-purple-600 shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-600">Predicción de comportamiento de clientes</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-5 w-5 text-purple-600 shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-600">Pronóstico de ventas y demanda</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-5 w-5 text-purple-600 shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-600">Identificación de oportunidades de crecimiento</span>
+                  </li>
+                </ul>
               </div>
 
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <div className="text-[#0071E3] text-2xl md:text-3xl font-bold mb-3">02</div>
-                <h3 className="text-xl font-semibold mb-2">Mayor eficiencia</h3>
-                <p className="text-sm md:text-base text-gray-600">
-                  Procesa pedidos hasta 5 veces más rápido que con métodos tradicionales.
+              <div className="bg-white p-6 rounded-xl shadow-sm">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-purple-100">
+                  <TrendingUp className="h-6 w-6 text-purple-600" />
+                </div>
+                <h3 className="mb-2 text-xl font-bold text-gray-900">Identificación de tendencias</h3>
+                <p className="text-gray-700">
+                  Detecta patrones y tendencias en grandes volúmenes de datos que podrían pasar desapercibidos.
                 </p>
+                <ul className="mt-4 space-y-2">
+                  <li className="flex items-start gap-2">
+                    <Check className="h-5 w-5 text-purple-600 shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-600">Análisis de comportamiento de mercado</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-5 w-5 text-purple-600 shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-600">Detección temprana de cambios en patrones</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-5 w-5 text-purple-600 shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-600">Correlación entre diferentes variables de negocio</span>
+                  </li>
+                </ul>
               </div>
 
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <div className="text-[#0071E3] text-2xl md:text-3xl font-bold mb-3">03</div>
-                <h3 className="text-xl font-semibold mb-2">Mejor experiencia del cliente</h3>
-                <p className="text-sm md:text-base text-gray-600">
-                  Tus clientes reciben confirmaciones instantáneas y seguimiento constante de sus pedidos.
+              <div className="bg-white p-6 rounded-xl shadow-sm">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-purple-100">
+                  <PieChart className="h-6 w-6 text-purple-600" />
+                </div>
+                <h3 className="mb-2 text-xl font-bold text-gray-900">Reportes automáticos</h3>
+                <p className="text-gray-700">
+                  Genera informes detallados y visualizaciones claras que transforman datos complejos en información
+                  accionable.
+                </p>
+                <ul className="mt-4 space-y-2">
+                  <li className="flex items-start gap-2">
+                    <Check className="h-5 w-5 text-purple-600 shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-600">Dashboards personalizados según necesidades</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-5 w-5 text-purple-600 shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-600">Informes programados enviados automáticamente</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-5 w-5 text-purple-600 shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-600">Visualizaciones interactivas para mejor comprensión</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-white p-6 rounded-xl shadow-sm">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-purple-100">
+                  <LineChart className="h-6 w-6 text-purple-600" />
+                </div>
+                <h3 className="mb-2 text-xl font-bold text-gray-900">Monitoreo de KPIs</h3>
+                <p className="text-gray-700">
+                  Realiza seguimiento continuo de indicadores clave de rendimiento para mantener el negocio en la
+                  dirección correcta.
+                </p>
+                <ul className="mt-4 space-y-2">
+                  <li className="flex items-start gap-2">
+                    <Check className="h-5 w-5 text-purple-600 shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-600">Alertas automáticas cuando los KPIs se desvían</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-5 w-5 text-purple-600 shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-600">Comparativas de rendimiento histórico</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-5 w-5 text-purple-600 shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-600">Recomendaciones para mejorar métricas clave</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Industries Section */}
+        <section className="container py-12 md:py-16">
+          <div className="mx-auto max-w-4xl">
+            <div className="mb-12 text-center">
+              <Badge className="mb-4 px-3 py-1 text-sm" variant="outline">
+                INDUSTRIAS
+              </Badge>
+              <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900">Ideal para múltiples sectores</h2>
+              <p className="mx-auto max-w-2xl text-lg text-gray-700">
+                Vera se adapta a las necesidades específicas de diferentes industrias
+              </p>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="rounded-lg border border-gray-200 p-6">
+                <h3 className="mb-2 text-lg font-bold text-gray-900">Finanzas</h3>
+                <p className="text-gray-700">
+                  Análisis de tendencias de mercado, detección de fraudes y optimización de inversiones.
+                </p>
+              </div>
+              <div className="rounded-lg border border-gray-200 p-6">
+                <h3 className="mb-2 text-lg font-bold text-gray-900">Marketing</h3>
+                <p className="text-gray-700">
+                  Análisis de campañas, segmentación de audiencias y optimización de estrategias.
+                </p>
+              </div>
+              <div className="rounded-lg border border-gray-200 p-6">
+                <h3 className="mb-2 text-lg font-bold text-gray-900">E-commerce</h3>
+                <p className="text-gray-700">
+                  Análisis de comportamiento de compra, optimización de inventario y personalización.
+                </p>
+              </div>
+              <div className="rounded-lg border border-gray-200 p-6">
+                <h3 className="mb-2 text-lg font-bold text-gray-900">Tecnología</h3>
+                <p className="text-gray-700">
+                  Análisis de uso de productos, detección de problemas y optimización de rendimiento.
                 </p>
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div className="px-4 py-12 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">
-            ¿Listo para optimizar tu gestión de pedidos?
-          </h2>
-          <CTAButton text="Comenzar con Vera" className="w-full md:w-auto text-base md:text-lg px-6 md:px-8 py-3" />
-        </div>
+        {/* CTA Section */}
+        <section className="container py-12 md:py-16">
+          <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl bg-gradient-to-r from-purple-500 to-purple-600 p-8 md:p-12">
+            <div className="text-center">
+              <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
+                ¿Listo para transformar tus datos en decisiones con Vera?
+              </h2>
+              <p className="mx-auto mb-8 max-w-2xl text-lg text-white/90">
+                Comienza hoy mismo con una prueba gratuita y descubre cómo Vera puede ayudarte a tomar mejores
+                decisiones basadas en datos
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button size="lg" variant="secondary" className="bg-white text-purple-600 hover:bg-white/90">
+                  Comenzar prueba gratuita
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white text-white bg-transparent hover:bg-white/10"
+                >
+                  Agendar una demo
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
-    </>
+
+      <footer className="bg-gray-900 py-12 text-gray-400">
+        <div className="container">
+          <div className="grid gap-8 md:grid-cols-4">
+            <div>
+              <div className="flex items-center gap-2">
+                <Image src="/app-logo-icon.png" alt="Bravilo Logo" width={32} height={32} className="h-8 w-8" />
+                <Image src="/bravilo-text-white.png" alt="Bravilo" width={100} height={24} className="h-6 w-auto" />
+              </div>
+              <p className="mt-4 text-sm">© 2023 Bravilo. Todos los derechos reservados.</p>
+            </div>
+            <div>
+              <h3 className="mb-4 text-lg font-medium text-white">Producto</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link href="/scouts" className="hover:text-white">
+                    Scouts
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Soluciones
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Precios
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Integraciones
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="mb-4 text-lg font-medium text-white">Recursos</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Documentación
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Guías
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Webinars
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="mb-4 text-lg font-medium text-white">Empresa</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Sobre nosotros
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Contacto
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Términos de servicio
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Política de privacidad
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
   )
 }
-
