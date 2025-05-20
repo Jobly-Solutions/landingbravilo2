@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -21,7 +22,7 @@ export default function RootLayout({
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-0ZSDZM57LM"
         />
-        <Script strategy="afterInteractive" id="google-analytics">
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -30,33 +31,41 @@ export default function RootLayout({
           `}
         </Script>
 
-        <script src="https://cdn.brevo.com/js/sdk-loader.js" async></script>
-<script>
-    // Version: 2.0
-    window.Brevo = window.Brevo || [];
-    Brevo.push([
-        "init",
-        {
-        client_key: "g44xy8xk1tyc66zvl16ihigd",
-        // Optional: Add other initialization options, see documentation
-        }
-    ]);
-</script>
+        {/* Brevo Tracker */}
+        <Script
+          strategy="afterInteractive"
+          src="https://cdn.brevo.com/js/sdk-loader.js"
+        />
+        <Script id="brevo-init" strategy="afterInteractive">
+          {`
+            window.Brevo = window.Brevo || [];
+            Brevo.push([
+              "init",
+              {
+                client_key: "g44xy8xk1tyc66zvl16ihigd"
+              }
+            ]);
+          `}
+        </Script>
       </head>
       <body>
         {children}
-        <Script
-          type="module"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              import Chatbox from 'https://cdn.jsdelivr.net/npm/@bravilo/embeds@latest/dist/chatbox/index.js';
-              Chatbox.initBubble({
-                agentId: 'cm8rscw3d0000rj7wkb231fht',
-              });
-            `
-          }}
-        />
+
+        {/* Bravilo Chatbox */}
+        <Script id="bravilo-chat" strategy="afterInteractive">
+          {`
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/@bravilo/embeds@latest/dist/chatbox/index.js';
+            script.onload = () => {
+              if (window.Chatbox) {
+                window.Chatbox.initBubble({
+                  agentId: 'cm8rscw3d0000rj7wkb231fht',
+                });
+              }
+            };
+            document.body.appendChild(script);
+          `}
+        </Script>
       </body>
     </html>
   )
