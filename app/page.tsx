@@ -10,7 +10,6 @@ import { Badge } from "@/components/ui/badge"
 import { IntegrationOrbit } from "@/components/integration-orbit"
 
 export default function Home() {
-  const [isAnnual, setIsAnnual] = React.useState(true)
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
