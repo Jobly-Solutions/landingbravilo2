@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge"
 import { IntegrationOrbit } from "@/components/integration-orbit"
 
 export default function Home() {
+  const [isAnnual, setIsAnnual] = React.useState(true)
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
@@ -120,7 +121,7 @@ export default function Home() {
                 <Image src="/logo-carton.png" alt="Carton.com" width={140} height={48} className="object-contain" />
               </div>
               <div className="h-12 flex items-center ml-4">
-                <span className="text-primary font-medium text-lg">+120 empresas...</span>
+                <span className="text-primary font-medium text-lg">+120 empresas más...</span>
               </div>
             </div>
           </div>
@@ -721,10 +722,23 @@ export default function Home() {
                 Soluciones adaptadas a las necesidades de tu negocio
               </p>
 
-              
+              <div className="flex items-center justify-center gap-4 mb-8">
+                <div className="flex items-center bg-gray-100 p-1 rounded-full">
+                 
+                  <button
+                    className={`px-4 py-2 rounded-full ${!isAnnual ? "bg-primary text-white" : "text-gray-700"} font-medium transition-colors`}
+                    onClick={() => setIsAnnual(false)}
+                  >
+                    Mensual
+                  </button>
+                </div>
+                <span className="text-xs font-medium text-green-500 bg-green-100 px-2 py-1 rounded">AHORRA 40%</span>
+              </div>
+            </div>
 
             <div className="grid gap-6 md:grid-cols-4">
-            
+              
+
               {/* Plan Start */}
               <div className="rounded-xl border border-gray-200 bg-white overflow-hidden">
                 <div className="p-6">
@@ -867,7 +881,7 @@ export default function Home() {
               {[
                 {
                   name: "María González",
-                  role: "Gerente de Operaciones, Inmobiliaria Gonzalez",
+                  role: "Gerente de Operaciones, Inmobiliaria XYZ",
                   quote:
                     "Bravilo ha transformado completamente nuestra forma de trabajar. Ahorramos más de 30 horas semanales en tareas administrativas y nuestros clientes están encantados con la rapidez de respuesta.",
                 },
