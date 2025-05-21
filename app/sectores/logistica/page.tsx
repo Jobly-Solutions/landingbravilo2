@@ -106,16 +106,14 @@ export default function LogisticaPage() {
                     Probar Bravilo Ahora
                   </Button>
                   </Link>
-                  <Button variant="outline" size="lg" className="h-12 px-8 bg-transparent">
-                    Ver demo <ChevronRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  
                 </div>
               </div>
               <div className="relative">
                 <div className="absolute -inset-4 bg-green-100 rounded-3xl blur-3xl opacity-30"></div>
                 <div className="relative rounded-xl overflow-hidden">
                   <Image
-                    src="/placeholder.svg?height=400&width=600&query=logistics warehouse with workers and technology"
+                    src="/logistica.png"
                     alt="Logística con IA"
                     width={600}
                     height={400}
@@ -321,13 +319,7 @@ export default function LogisticaPage() {
                   Probar Bravilo Ahora
                 </Button>
                 </Link>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white bg-transparent hover:bg-white/10"
-                >
-                  Agendar una demo <ChevronRight className="ml-2 h-4 w-4" />
-                </Button>
+                
               </div>
             </div>
           </div>

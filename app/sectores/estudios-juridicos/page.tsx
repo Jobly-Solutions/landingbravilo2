@@ -322,13 +322,7 @@ export default function EstudiosJuridicosPage() {
                   Probar Bravilo Ahora
                 </Button>
                 </Link>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white bg-transparent hover:bg-white/10"
-                >
-                  Agendar una demo <ChevronRight className="ml-2 h-4 w-4" />
-                </Button>
+                
               </div>
             </div>
           </div>

@@ -332,13 +332,7 @@ export default function SimonScoutPage() {
                     Probar Bravilo ahora
                   </Button>
                 </Link>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white bg-transparent hover:bg-white/10"
-                >
-                  Agendar una demo
-                </Button>
+               
               </div>
             </div>
           </div>
