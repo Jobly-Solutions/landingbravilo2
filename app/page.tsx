@@ -708,160 +708,100 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Pricing Section - Estilo de tarjetas */}
-        <section className="container py-16 md:py-24 bg-gray-50">
-          <div className="mx-auto max-w-6xl">
-            <div className="mb-16 text-center">
-              <Badge className="mb-4 px-3 py-1 text-sm" variant="outline">
-                PLANES
-              </Badge>
-              <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
-                Planes de Bravilo Scouts
-              </h2>
-              <p className="mx-auto max-w-2xl text-lg text-gray-700 mb-8">
-                Soluciones adaptadas a las necesidades de tu negocio
-              </p>
+       {/* Pricing Section - Solo mensual */}
+<section className="container py-16 md:py-24 bg-gray-50">
+  <div className="mx-auto max-w-6xl">
+    <div className="mb-16 text-center">
+      <Badge className="mb-4 px-3 py-1 text-sm" variant="outline">
+        PLANES
+      </Badge>
+      <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
+        Planes de Bravilo Scouts
+      </h2>
+      <p className="mx-auto max-w-2xl text-lg text-gray-700 mb-8">
+        Soluciones adaptadas a las necesidades de tu negocio
+      </p>
+    </div>
 
-              <div className="flex items-center justify-center gap-4 mb-8">
-                <div className="flex items-center bg-gray-100 p-1 rounded-full">
-                 
-                  <button
-                    className={`px-4 py-2 rounded-full ${!isAnnual ? "bg-primary text-white" : "text-gray-700"} font-medium transition-colors`}
-                    onClick={() => setIsAnnual(false)}
-                  >
-                    Mensual
-                  </button>
-                </div>
-                <span className="text-xs font-medium text-green-500 bg-green-100 px-2 py-1 rounded">AHORRA 40%</span>
-              </div>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-4">
-              
-
-              {/* Plan Start */}
-              <div className="rounded-xl border border-gray-200 bg-white overflow-hidden">
-                <div className="p-6">
-                  <div className="mb-4 flex items-center">
-                    <span className="text-xl font-bold text-gray-900">🟦 Start</span>
-                  </div>
-                  <p className="text-sm text-gray-500 mb-6">Profesionales independientes</p>
-
-                  <div className="mb-6">
-                    <div className="text-4xl font-bold">${isAnnual ? "49" : "49"}</div>
-                    <div className="text-sm text-gray-500">
-                      por mes, facturado {isAnnual ? "anualmente" : "mensualmente"}
-                    </div>
-                  </div>
-
-                  <Button className="w-full mb-8 bg-blue-600 hover:bg-blue-700">
-                    {isAnnual ? "Suscribirse" : "Comenzar prueba"}
-                  </Button>
-
-                  <div className="space-y-4">
-                    <p className="text-sm font-medium text-gray-700">Uso y Plataforma</p>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-primary mt-0.5" />
-                      <span className="text-sm text-gray-700">Hasta 2 Scouts</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-primary mt-0.5" />
-                      <span className="text-sm text-gray-700">Hasta 3.000 conversaciones</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-primary mt-0.5" />
-                      <span className="text-sm text-gray-700">Hasta 3 usuarios</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-primary mt-0.5" />
-                      <span className="text-sm text-gray-700">Hasta 300 contactos</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Plan Pro */}
-              <div className="rounded-xl border-2 border-primary bg-blue-50 overflow-hidden">
-                <div className="p-6">
-                  <div className="mb-4 flex items-center">
-                    <span className="text-xl font-bold text-gray-900">🟧 Pro</span>
-                  </div>
-                  <p className="text-sm text-gray-500 mb-6">Negocios en crecimiento</p>
-
-                  <div className="mb-6">
-                    <div className="text-4xl font-bold">${isAnnual ? "199" : "199"}</div>
-                    <div className="text-sm text-gray-500">
-                      por mes, facturado {isAnnual ? "anualmente" : "mensualmente"}
-                    </div>
-                  </div>
-
-                  <Button className="w-full mb-8">{isAnnual ? "Suscribirse" : "Comenzar prueba"}</Button>
-
-                  <div className="space-y-4">
-                    <p className="text-sm font-medium text-gray-700">Uso y Plataforma</p>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-primary mt-0.5" />
-                      <span className="text-sm text-gray-700">Hasta 5 Scouts</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-primary mt-0.5" />
-                      <span className="text-sm text-gray-700">Hasta 10.000 conversaciones</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-primary mt-0.5" />
-                      <span className="text-sm text-gray-700">Hasta 10 usuarios</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-primary mt-0.5" />
-                      <span className="text-sm text-gray-700">Hasta 1000 contactos</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Plan Escale */}
-              <div className="rounded-xl border border-gray-200 bg-white overflow-hidden">
-                <div className="p-6">
-                  <div className="mb-4 flex items-center">
-                    <span className="text-xl font-bold text-gray-900">🟥 Scale</span>
-                  </div>
-                  <p className="text-sm text-gray-500 mb-6">Empresas con múltiples departamentos</p>
-
-                  <div className="mb-6">
-                    <div className="text-4xl font-bold">${isAnnual ? "499" : "499"}</div>
-                    <div className="text-sm text-gray-500">
-                      por mes, facturado {isAnnual ? "anualmente" : "mensualmente"}
-                    </div>
-                  </div>
-
-                  <Button className="w-full mb-8 bg-pink-600 hover:bg-pink-700">
-                    {isAnnual ? "Suscribirse" : "Comenzar prueba"}
-                  </Button>
-
-                  <div className="space-y-4">
-                    <p className="text-sm font-medium text-gray-700">Uso y Plataforma</p>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-primary mt-0.5" />
-                      <span className="text-sm text-gray-700">Hasta 100 Scouts</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-primary mt-0.5" />
-                      <span className="text-sm text-gray-700">Hasta 100.000 conversaciones</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-primary mt-0.5" />
-                      <span className="text-sm text-gray-700">Hasta 50 usuarios</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-primary mt-0.5" />
-                      <span className="text-sm text-gray-700">Contactos ilimitados</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <div className="grid gap-6 md:grid-cols-4">
+      {/* Plan Start */}
+      <div className="rounded-xl border border-gray-200 bg-white overflow-hidden">
+        <div className="p-6">
+          <div className="mb-4 flex items-center">
+            <span className="text-xl font-bold text-gray-900">🟦 Start</span>
           </div>
-        </section>
+          <p className="text-sm text-gray-500 mb-6">Profesionales independientes</p>
+
+          <div className="mb-6">
+            <div className="text-4xl font-bold">$49</div>
+            <div className="text-sm text-gray-500">por mes, facturado mensualmente</div>
+          </div>
+
+          <Button className="w-full mb-8 bg-blue-600 hover:bg-blue-700">Comenzar prueba</Button>
+
+          <div className="space-y-4">
+            <p className="text-sm font-medium text-gray-700">Uso y Plataforma</p>
+            <div className="flex items-start gap-2"><Check className="h-4 w-4 text-primary mt-0.5" /><span className="text-sm text-gray-700">Hasta 2 Scouts</span></div>
+            <div className="flex items-start gap-2"><Check className="h-4 w-4 text-primary mt-0.5" /><span className="text-sm text-gray-700">Hasta 3.000 conversaciones</span></div>
+            <div className="flex items-start gap-2"><Check className="h-4 w-4 text-primary mt-0.5" /><span className="text-sm text-gray-700">Hasta 3 usuarios</span></div>
+            <div className="flex items-start gap-2"><Check className="h-4 w-4 text-primary mt-0.5" /><span className="text-sm text-gray-700">Hasta 300 contactos</span></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Plan Pro */}
+      <div className="rounded-xl border-2 border-primary bg-blue-50 overflow-hidden">
+        <div className="p-6">
+          <div className="mb-4 flex items-center">
+            <span className="text-xl font-bold text-gray-900">🟧 Pro</span>
+          </div>
+          <p className="text-sm text-gray-500 mb-6">Negocios en crecimiento</p>
+
+          <div className="mb-6">
+            <div className="text-4xl font-bold">$199</div>
+            <div className="text-sm text-gray-500">por mes, facturado mensualmente</div>
+          </div>
+
+          <Button className="w-full mb-8">Comenzar prueba</Button>
+
+          <div className="space-y-4">
+            <p className="text-sm font-medium text-gray-700">Uso y Plataforma</p>
+            <div className="flex items-start gap-2"><Check className="h-4 w-4 text-primary mt-0.5" /><span className="text-sm text-gray-700">Hasta 5 Scouts</span></div>
+            <div className="flex items-start gap-2"><Check className="h-4 w-4 text-primary mt-0.5" /><span className="text-sm text-gray-700">Hasta 10.000 conversaciones</span></div>
+            <div className="flex items-start gap-2"><Check className="h-4 w-4 text-primary mt-0.5" /><span className="text-sm text-gray-700">Hasta 10 usuarios</span></div>
+            <div className="flex items-start gap-2"><Check className="h-4 w-4 text-primary mt-0.5" /><span className="text-sm text-gray-700">Hasta 1000 contactos</span></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Plan Scale */}
+      <div className="rounded-xl border border-gray-200 bg-white overflow-hidden">
+        <div className="p-6">
+          <div className="mb-4 flex items-center">
+            <span className="text-xl font-bold text-gray-900">🟥 Scale</span>
+          </div>
+          <p className="text-sm text-gray-500 mb-6">Empresas con múltiples departamentos</p>
+
+          <div className="mb-6">
+            <div className="text-4xl font-bold">$499</div>
+            <div className="text-sm text-gray-500">por mes, facturado mensualmente</div>
+          </div>
+
+          <Button className="w-full mb-8 bg-pink-600 hover:bg-pink-700">Comenzar prueba</Button>
+
+          <div className="space-y-4">
+            <p className="text-sm font-medium text-gray-700">Uso y Plataforma</p>
+            <div className="flex items-start gap-2"><Check className="h-4 w-4 text-primary mt-0.5" /><span className="text-sm text-gray-700">Hasta 100 Scouts</span></div>
+            <div className="flex items-start gap-2"><Check className="h-4 w-4 text-primary mt-0.5" /><span className="text-sm text-gray-700">Hasta 100.000 conversaciones</span></div>
+            <div className="flex items-start gap-2"><Check className="h-4 w-4 text-primary mt-0.5" /><span className="text-sm text-gray-700">Hasta 50 usuarios</span></div>
+            <div className="flex items-start gap-2"><Check className="h-4 w-4 text-primary mt-0.5" /><span className="text-sm text-gray-700">Contactos ilimitados</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
         {/* Testimonials - Estilo Notnini */}
         <section className="container py-16 md:py-24">
@@ -881,7 +821,7 @@ export default function Home() {
               {[
                 {
                   name: "María González",
-                  role: "Gerente de Operaciones, Inmobiliaria XYZ",
+                  role: "Gerente de Operaciones, Inmobiliaria Gonzalez",
                   quote:
                     "Bravilo ha transformado completamente nuestra forma de trabajar. Ahorramos más de 30 horas semanales en tareas administrativas y nuestros clientes están encantados con la rapidez de respuesta.",
                 },
