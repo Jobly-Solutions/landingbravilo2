@@ -101,9 +101,11 @@ export default function EstudiosJuridicosPage() {
                   repetitivas, mejorando el seguimiento de casos y optimizando la gestión de clientes.
                 </p>
                 <div className="flex flex-col sm:flex-row items-start gap-4">
+                  <Link href="/onboarding">
                   <Button size="lg" className="h-12 px-8">
-                    Comenzar prueba gratuita
+                    Probar Bravilo Ahora
                   </Button>
+                  </Link>
                   <Button variant="outline" size="lg" className="h-12 px-8 bg-transparent">
                     Ver demo <ChevronRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -315,9 +317,11 @@ export default function EstudiosJuridicosPage() {
                 práctica legal
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link href="/onboarding">
                 <Button size="lg" variant="secondary" className="bg-white text-purple-600 hover:bg-white/90">
-                  Comenzar prueba gratuita
+                  Probar Bravilo Ahora
                 </Button>
+                </link>
                 <Button
                   size="lg"
                   variant="outline"

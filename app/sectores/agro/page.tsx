@@ -101,9 +101,12 @@ export default function AgroPage() {
                   monitoreo de cultivos, la gestión de recursos y la toma de decisiones basada en datos.
                 </p>
                 <div className="flex flex-col sm:flex-row items-start gap-4">
-                  <Button size="lg" className="h-12 px-8">
-                    Comenzar prueba gratuita
-                  </Button>
+                  <Link href="/onboarding">
+                <Button size="lg" className="h-12 px-8">
+                  Probar Bravilo ahora
+                </Button>
+              </Link>
+                  
                   <Button variant="outline" size="lg" className="h-12 px-8 bg-transparent">
                     Ver demo <ChevronRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -314,9 +317,11 @@ export default function AgroPage() {
                 agrícola
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link href="/onboarding">
                 <Button size="lg" variant="secondary" className="bg-white text-amber-600 hover:bg-white/90">
-                  Comenzar prueba gratuita
+                  Probar Bravilo Ahora
                 </Button>
+                </Link>
                 <Button
                   size="lg"
                   variant="outline"

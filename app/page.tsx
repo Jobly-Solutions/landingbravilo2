@@ -40,7 +40,9 @@ export default function Home() {
           <Button variant="outline" className="hidden md:inline-flex">
             Iniciar sesión
           </Button>
-          <Button>Registrarse</Button>
+          <Link href="/onboarding">
+            <Button>Probar Bravilo ahora</Button>
+          </Link>
         </div>
       </header>
       <main className="flex-1">
@@ -62,9 +64,11 @@ export default function Home() {
                 maximizar resultados.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <Button size="lg" className="h-12 px-8">
-                  Comenzar prueba gratuita
-                </Button>
+                <Link href="/onboarding">
+                  <Button size="lg" className="h-12 px-8">
+                    Probar Bravilo ahora
+                  </Button>
+                </Link>
                 <Button variant="outline" size="lg" className="h-12 px-8 bg-transparent">
                   Ver demo <ChevronRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -566,7 +570,7 @@ export default function Home() {
                   Ya sea para enviar, atender al cliente, agendar o reportar, estoy diseñado para integrarme rápido y
                   sin fricción.
                 </p>
-                <Button className="w-fit">
+                <Button>
                   Ver todas las integraciones <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
@@ -650,9 +654,11 @@ export default function Home() {
             </div>
 
             <div className="mt-12 text-center">
-              <Button size="lg" className="px-8">
-                Comenzar ahora <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <Link href="/onboarding">
+                <Button size="lg" className="px-8">
+                  Probar Bravilo ahora <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
@@ -965,9 +971,11 @@ export default function Home() {
                   predictivo de los datos con nuestros scouts inteligentes.
                 </p>
                 <div className="flex flex-col gap-4 sm:flex-row">
-                  <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90">
-                    Comenzar prueba gratuita
-                  </Button>
+                  <Link href="/onboarding">
+                    <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90">
+                      Probar Bravilo ahora
+                    </Button>
+                  </Link>
                   <Button
                     size="lg"
                     variant="outline"

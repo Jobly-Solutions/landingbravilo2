@@ -123,7 +123,9 @@ export default function ScoutsPage() {
           <Button variant="outline" className="hidden md:inline-flex">
             Iniciar sesión
           </Button>
-          <Button>Registrarse</Button>
+          <Link href="/onboarding">
+            <Button>Probar Bravilo ahora</Button>
+          </Link>
         </div>
       </header>
 
@@ -146,9 +148,11 @@ export default function ScoutsPage() {
                 potenciar el crecimiento de tu negocio. Descubre cuál es el ideal para tus necesidades.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button size="lg" className="h-12 px-8">
-                  Comenzar prueba gratuita
-                </Button>
+                <Link href="/onboarding">
+                  <Button size="lg" className="h-12 px-8">
+                    Probar Bravilo ahora
+                  </Button>
+                </Link>
                 <Button variant="outline" size="lg" className="h-12 px-8 bg-transparent">
                   Ver demo <ChevronRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -488,9 +492,11 @@ export default function ScoutsPage() {
                 de trabajar
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90">
-                  Comenzar prueba gratuita
-                </Button>
+                <Link href="/onboarding">
+                  <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90">
+                    Probar Bravilo ahora
+                  </Button>
+                </Link>
                 <Button
                   size="lg"
                   variant="outline"

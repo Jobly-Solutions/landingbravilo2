@@ -40,7 +40,9 @@ export default function VeraScoutPage() {
           <Button variant="outline" className="hidden md:inline-flex">
             Iniciar sesión
           </Button>
-          <Button>Registrarse</Button>
+          <Link href="/onboarding">
+            <Button>Probar Bravilo ahora</Button>
+          </Link>
         </div>
       </header>
 
@@ -95,9 +97,11 @@ export default function VeraScoutPage() {
                   <span className="text-sm font-medium">Monitoreo de KPIs</span>
                 </div>
               </div>
-              <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
-                Comenzar prueba gratuita
-              </Button>
+              <Link href="/onboarding">
+                <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
+                  Probar Bravilo ahora
+                </Button>
+              </Link>
             </div>
             <div className="relative">
               <div className="absolute -inset-4 bg-purple-100 rounded-3xl blur-3xl opacity-30"></div>
@@ -319,9 +323,11 @@ export default function VeraScoutPage() {
                 decisiones basadas en datos
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button size="lg" variant="secondary" className="bg-white text-purple-600 hover:bg-white/90">
-                  Comenzar prueba gratuita
-                </Button>
+                <Link href="/onboarding">
+                  <Button size="lg" variant="secondary" className="bg-white text-purple-600 hover:bg-white/90">
+                    Probar Bravilo ahora
+                  </Button>
+                </Link>
                 <Button
                   size="lg"
                   variant="outline"

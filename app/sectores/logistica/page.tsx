@@ -99,9 +99,11 @@ export default function LogisticaPage() {
                   mejorando la gestión de inventario y optimizando toda tu cadena de suministro.
                 </p>
                 <div className="flex flex-col sm:flex-row items-start gap-4">
+                  <Link href="/onboarding">
                   <Button size="lg" className="h-12 px-8">
-                    Comenzar prueba gratuita
+                    Probar Bravilo Ahora
                   </Button>
+                  </Link>
                   <Button variant="outline" size="lg" className="h-12 px-8 bg-transparent">
                     Ver demo <ChevronRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -312,9 +314,11 @@ export default function LogisticaPage() {
                 de suministro
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link href="/onboarding">
                 <Button size="lg" variant="secondary" className="bg-white text-green-600 hover:bg-white/90">
-                  Comenzar prueba gratuita
+                  Probar Bravilo Ahora
                 </Button>
+                </Link>
                 <Button
                   size="lg"
                   variant="outline"

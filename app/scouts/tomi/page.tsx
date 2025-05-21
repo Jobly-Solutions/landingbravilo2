@@ -40,7 +40,9 @@ export default function TomiScoutPage() {
           <Button variant="outline" className="hidden md:inline-flex">
             Iniciar sesión
           </Button>
-          <Button>Registrarse</Button>
+          <Link href="/onboarding">
+            <Button>Probar Bravilo ahora</Button>
+          </Link>
         </div>
       </header>
 
@@ -96,9 +98,11 @@ export default function TomiScoutPage() {
                   <span className="text-sm font-medium">Soporte multicanal</span>
                 </div>
               </div>
-              <Button size="lg" className="bg-amber-600 hover:bg-amber-700">
-                Comenzar prueba gratuita
-              </Button>
+              <Link href="/onboarding">
+                <Button size="lg" className="bg-amber-600 hover:bg-amber-700">
+                  Probar Bravilo ahora
+                </Button>
+              </Link>
             </div>
             <div className="relative">
               <div className="absolute -inset-4 bg-amber-100 rounded-3xl blur-3xl opacity-30"></div>
@@ -319,9 +323,11 @@ export default function TomiScoutPage() {
                 soporte de tus clientes
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button size="lg" variant="secondary" className="bg-white text-amber-600 hover:bg-white/90">
-                  Comenzar prueba gratuita
-                </Button>
+                <Link href="/onboarding">
+                  <Button size="lg" variant="secondary" className="bg-white text-amber-600 hover:bg-white/90">
+                    Probar Bravilo ahora
+                  </Button>
+                </Link>
                 <Button
                   size="lg"
                   variant="outline"

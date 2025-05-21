@@ -40,7 +40,9 @@ export default function LiaScoutPage() {
           <Button variant="outline" className="hidden md:inline-flex">
             Iniciar sesión
           </Button>
-          <Button>Registrarse</Button>
+          <Link href="/onboarding">
+            <Button>Probar Bravilo ahora</Button>
+          </Link>
         </div>
       </header>
 
@@ -96,9 +98,11 @@ export default function LiaScoutPage() {
                   <span className="text-sm font-medium">Análisis de conversiones</span>
                 </div>
               </div>
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                Comenzar prueba gratuita
-              </Button>
+              <Link href="/onboarding">
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+                  Probar Bravilo ahora
+                </Button>
+              </Link>
             </div>
             <div className="relative">
               <div className="absolute -inset-4 bg-blue-100 rounded-3xl blur-3xl opacity-30"></div>
@@ -320,9 +324,11 @@ export default function LiaScoutPage() {
                 Comienza hoy mismo con una prueba gratuita y descubre cómo Lia puede transformar tu proceso de ventas
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-white/90">
-                  Comenzar prueba gratuita
-                </Button>
+                <Link href="/onboarding">
+                  <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-white/90">
+                    Probar Bravilo ahora
+                  </Button>
+                </Link>
                 <Button
                   size="lg"
                   variant="outline"

@@ -282,9 +282,10 @@ export default function SectoresPage() {
                 maximizar resultados y optimizar procesos.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button size="lg" className="h-12 px-8">
-                  Comenzar prueba gratuita
-                </Button>
+                
+                <Link href="/onboarding">
+                  <Button size="lg" className="h-12 px-8">Probar Bravilo ahora</Button>
+                </Link>
                 <Button variant="outline" size="lg" className="h-12 px-8 bg-transparent">
                   Ver demo <ChevronRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -362,7 +363,7 @@ export default function SectoresPage() {
                   </div>
                   <p className="mb-4 text-base text-gray-700">{sector.descripcion}</p>
                   <Link
-                    href={`https://api.whatsapp.com/send/?phone=%2B5493584267977`}
+                    href={`https://braviloai.com//onboarding`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -488,9 +489,12 @@ export default function SectoresPage() {
                 de trabajar
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link href="/onboarding">
                 <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90">
-                  Comenzar prueba gratuita
+                  Probar Bravilo Ahora
                 </Button>
+                </Link>
+                
                 <Button
                   size="lg"
                   variant="outline"
