@@ -725,44 +725,7 @@ export default function Home() {
               
 
             <div className="grid gap-6 md:grid-cols-4">
-              {/* Plan Free
-              <div className="rounded-xl border border-gray-200 bg-white overflow-hidden">
-                <div className="p-6">
-                  <div className="mb-4 flex items-center">
-                    <span className="text-xl font-bold text-gray-900">⬜ Free</span>
-                  </div>
-                  <p className="text-sm text-gray-500 mb-6">Iniciar con Agentes de IA</p>
-
-                  <div className="mb-6">
-                    <div className="text-4xl font-bold">Free</div>
-                  </div>
-
-                  <Button variant="outline" className="w-full mb-8">
-                    Comenzar gratis
-                  </Button>
-
-                  <div className="space-y-4">
-                    <p className="text-sm font-medium text-gray-700">Uso y Plataforma</p>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-primary mt-0.5" />
-                      <span className="text-sm text-gray-700">Hasta 1 Scout</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-primary mt-0.5" />
-                      <span className="text-sm text-gray-700">Hasta 100 conversaciones</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-primary mt-0.5" />
-                      <span className="text-sm text-gray-700">Hasta 1 usuario</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-primary mt-0.5" />
-                      <span className="text-sm text-gray-700">Hasta 100 contactos</span>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
-
+            
               {/* Plan Start */}
               <div className="rounded-xl border border-gray-200 bg-white overflow-hidden">
                 <div className="p-6">
