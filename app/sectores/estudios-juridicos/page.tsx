@@ -321,7 +321,7 @@ export default function EstudiosJuridicosPage() {
                 <Button size="lg" variant="secondary" className="bg-white text-purple-600 hover:bg-white/90">
                   Probar Bravilo Ahora
                 </Button>
-                </link>
+                </Link>
                 <Button
                   size="lg"
                   variant="outline"
