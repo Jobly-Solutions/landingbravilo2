@@ -103,21 +103,24 @@ export default function ScoutsPage() {
           </Link>
         </div>
         <nav className="hidden gap-6 md:flex">
-          <Link href="/" className="text-sm font-medium text-gray-600 hover:text-primary">
+          <Link href="https://braviloai.com/" className="text-sm font-medium text-gray-600 hover:text-primary">
             Inicio
           </Link>
-          <Link href="/scouts" className="text-sm font-medium text-primary border-b-2 border-primary">
+          <Link href="https://braviloai.com/scouts" className="text-sm font-medium text-primary border-b-2 border-primary">
             Scouts
           </Link>
-          <Link href="#" className="text-sm font-medium text-gray-600 hover:text-primary">
+          <Link href="https://braviloai.com/sectores" className="text-sm font-medium text-primary">
+            Sectores
+          </Link>
+          <Link href="https://braviloai.com#pricing" className="text-sm font-medium text-gray-600 hover:text-primary">
             Precios
           </Link>
-          <Link href="#" className="text-sm font-medium text-gray-600 hover:text-primary">
+          <Link href="https://braviloai.com/blog" className="text-sm font-medium text-gray-600 hover:text-primary">
             Blog
           </Link>
         </nav>
         <div className="flex items-center gap-4">
-          <Link href="#" className="hidden text-sm font-medium text-gray-600 hover:text-primary md:block">
+          <Link href="https://braviloai.com/contacto" className="hidden text-sm font-medium text-gray-600 hover:text-primary md:block">
             Contacto
           </Link>
           <Button variant="outline" className="hidden md:inline-flex">
@@ -153,9 +156,7 @@ export default function ScoutsPage() {
                     Probar Bravilo ahora
                   </Button>
                 </Link>
-                <Button variant="outline" size="lg" className="h-12 px-8 bg-transparent">
-                  Ver demo <ChevronRight className="ml-2 h-4 w-4" />
-                </Button>
+                
               </div>
             </div>
           </div>

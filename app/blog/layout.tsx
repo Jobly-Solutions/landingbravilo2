@@ -16,27 +16,32 @@ export default function BlogLayout({ children }: { children: React.ReactNode }) 
           </Link>
         </div>
         <nav className="hidden gap-6 md:flex">
-          <Link href="/" className="text-sm font-medium text-gray-600 hover:text-primary">
+          <Link href="https://braviloai.com/" className="text-sm font-medium text-gray-600 hover:text-primary">
             Inicio
           </Link>
-          <Link href="#" className="text-sm font-medium text-gray-600 hover:text-primary">
+          <Link href="https://braviloai.com/scouts" className="text-sm font-medium text-gray-600 hover:text-primary">
             Scouts
           </Link>
-          <Link href="#" className="text-sm font-medium text-gray-600 hover:text-primary">
+          <Link href="https://braviloai.com/sectores" className="text-sm font-medium text-primary">
+            Sectores
+          </Link>
+          <Link href="https://braviloai.com#pricing" className="text-sm font-medium text-gray-600 hover:text-primary">
             Precios
           </Link>
-          <Link href="/blog" className="text-sm font-medium text-primary hover:text-primary">
+          <Link href="https://braviloai.com/blog" className="text-sm font-medium text-primary hover:text-primary">
             Blog
           </Link>
         </nav>
         <div className="flex items-center gap-4">
-          <Link href="#" className="hidden text-sm font-medium text-gray-600 hover:text-primary md:block">
+          <Link href="https://braviloai.com/contacto" className="hidden text-sm font-medium text-gray-600 hover:text-primary md:block">
             Contacto
           </Link>
           <Button variant="outline" className="hidden md:inline-flex">
             Iniciar sesión
           </Button>
-          <Button>Registrarse</Button>
+          <Link href="https://braviloai.com/onboarding" className="text-sm font-medium text-gray-600 hover:text-primary">
+          <Button>Probar Bravilo ahora</Button>
+          </Link>
         </div>
       </header>
       {children}

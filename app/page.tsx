@@ -20,27 +20,30 @@ export default function Home() {
           <span className="text-xl font-bold text-primary">Bravilo</span>
         </div>
         <nav className="hidden gap-6 md:flex">
-          <Link href="/" className="text-sm font-medium text-gray-600 hover:text-primary">
+          <Link href="https://braviloai.com/" className="text-sm font-medium text-gray-600 hover:text-primary">
             Inicio
           </Link>
-          <Link href="/scouts" className="text-sm font-medium text-gray-600 hover:text-primary">
+          <Link href="https://braviloai.com/scouts" className="text-sm font-medium text-gray-600 hover:text-primary">
             Scouts
           </Link>
-          <Link href="#pricing" className="text-sm font-medium text-gray-600 hover:text-primary">
+          <Link href="https://braviloai.com/sectores" className="text-sm font-medium text-primary">
+            Sectores
+          </Link>
+          <Link href="https://braviloai.com#pricing" className="text-sm font-medium text-gray-600 hover:text-primary">
             Precios
           </Link>
-          <Link href="/blog" className="text-sm font-medium text-gray-600 hover:text-primary">
+          <Link href="https://braviloai.com/blog" className="text-sm font-medium text-gray-600 hover:text-primary">
             Blog
           </Link>
         </nav>
         <div className="flex items-center gap-4">
-          <Link href="/contacto" className="hidden text-sm font-medium text-gray-600 hover:text-primary md:block">
+          <Link href="https://braviloai.com/contacto" className="hidden text-sm font-medium text-gray-600 hover:text-primary md:block">
             Contacto
           </Link>
           <Button variant="outline" className="hidden md:inline-flex">
             Iniciar sesión
           </Button>
-          <Link href="/onboarding">
+          <Link href="https://braviloai.com/onboarding">
             <Button>Probar Bravilo ahora</Button>
           </Link>
         </div>
@@ -69,9 +72,7 @@ export default function Home() {
                     Probar Bravilo ahora
                   </Button>
                 </Link>
-                <Button variant="outline" size="lg" className="h-12 px-8 bg-transparent">
-                  Ver demo <ChevronRight className="ml-2 h-4 w-4" />
-                </Button>
+                
               </div>
             </div>
             <div className="relative mx-auto mt-12 max-w-4xl">
