@@ -108,9 +108,7 @@ export default function EstudiosJuridicosPage() {
                     Probar Bravilo Ahora
                   </Button>
                   </Link>
-                  <Button variant="outline" size="lg" className="h-12 px-8 bg-transparent">
-                    Ver demo <ChevronRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  
                 </div>
               </div>
               <div className="relative">
