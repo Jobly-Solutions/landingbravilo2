@@ -20,13 +20,13 @@ export default function Home() {
           <span className="text-xl font-bold text-primary">Bravilo</span>
         </div>
         <nav className="hidden gap-6 md:flex">
-          <Link href="https://braviloai.com/" className="text-sm font-medium text-gray-600 hover:text-primary">
+          <Link href="https://braviloai.com/" className="text-sm font-medium text-gray-600 text-primary">
             Inicio
           </Link>
           <Link href="https://braviloai.com/scouts" className="text-sm font-medium text-gray-600 hover:text-primary">
             Scouts
           </Link>
-          <Link href="https://braviloai.com/sectores" className="text-sm font-medium text-primary">
+          <Link href="https://braviloai.com/sectores" className="text-sm font-medium hover:text-primary">
             Sectores
           </Link>
           <Link href="https://braviloai.com#pricing" className="text-sm font-medium text-gray-600 hover:text-primary">

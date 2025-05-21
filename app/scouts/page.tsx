@@ -109,7 +109,7 @@ export default function ScoutsPage() {
           <Link href="https://braviloai.com/scouts" className="text-sm font-medium text-primary border-b-2 border-primary">
             Scouts
           </Link>
-          <Link href="https://braviloai.com/sectores" className="text-sm font-medium text-primary">
+          <Link href="https://braviloai.com/sectores" className="text-sm font-medium hover:text-primary">
             Sectores
           </Link>
           <Link href="https://braviloai.com#pricing" className="text-sm font-medium text-gray-600 hover:text-primary">
