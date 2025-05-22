@@ -120,6 +120,9 @@ export default function Home() {
               <div className="h-12 flex items-center">
                 <Image src="/logo-carton.png" alt="Carton.com" width={140} height={48} className="object-contain" />
               </div>
+              <div className="h-12 flex items-center">
+                <Image src="/agrogi.webp" alt="AgroGi" width={140} height={48} className="object-contain" />
+              </div>
               <div className="h-12 flex items-center ml-4">
                 <span className="text-primary font-medium text-lg">+120 empresas</span>
               </div>
