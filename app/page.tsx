@@ -121,7 +121,7 @@ export default function Home() {
                 <Image src="/logo-carton.png" alt="Carton.com" width={140} height={48} className="object-contain" />
               </div>
               <div className="h-12 flex items-center ml-4">
-                <span className="text-primary font-medium text-lg">+120 empresas más...</span>
+                <span className="text-primary font-medium text-lg">+120 empresas</span>
               </div>
             </div>
           </div>
