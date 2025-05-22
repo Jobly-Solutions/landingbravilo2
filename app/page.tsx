@@ -571,9 +571,11 @@ export default function Home() {
                   Ya sea para enviar, atender al cliente, agendar o reportar, estoy diseñado para integrarme rápido y
                   sin fricción.
                 </p>
+                <Link href="/integraciones">
                 <Button>
                   Ver todas las integraciones <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
+                </Link>
               </div>
               <div className="flex items-center justify-center">
                 <IntegrationOrbit />
