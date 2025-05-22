@@ -109,9 +109,11 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             <p className="mb-8 text-lg text-white/90">
               Agendá una consultoría gratuita y descubrí cómo la inteligencia artificial puede transformar tu negocio.
             </p>
+            <Link href="/onboarding">
             <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90">
               Agendar consultoría gratuita
             </Button>
+            </Link>
           </div>
         </div>
       </section>
