@@ -241,7 +241,7 @@ export default function OnboardingPage() {
     try {
       console.log("Enviando datos:", formData)
 
-      const response = await fetch("/api/brevo", {
+      const response = await fetch("/api/onboarding", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -253,7 +253,8 @@ export default function OnboardingPage() {
 
       if (!response.ok) {
         console.error("Error en la respuesta:", result)
-        throw new Error(result.error || "Error al enviar los datos")
+        const errorMessage = result.error || "Error al enviar los datos"
+        throw new Error(errorMessage)
       }
 
       console.log("Respuesta exitosa:", result)
