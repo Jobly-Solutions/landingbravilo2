@@ -4,10 +4,11 @@ import type React from "react"
 
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
-import { CheckCircle, Loader2, Mail, Globe, Building, Users, BarChart3, AlertCircle, Phone } from "lucide-react"
+import { CheckCircle, Loader2, Mail, Globe, Building, Users, BarChart3, AlertCircle, Phone, User } from "lucide-react"
 import { z } from "zod"
 
 const formSchema = z.object({
+  nombre: z.string().min(2, { message: "El nombre es requerido" }),
   email: z.string().email({ message: "Email inválido" }),
   sitioWeb: z.string().url({ message: "URL inválida" }).optional().or(z.literal("")),
   empresa: z.string().min(2, { message: "El nombre de la empresa es requerido" }),
@@ -26,6 +27,7 @@ type FormData = z.infer<typeof formSchema>
 export default function OnboardingPage() {
   const [step, setStep] = useState<"paso1" | "paso2" | "loading" | "booking" | "landing">("paso1")
   const [formData, setFormData] = useState<FormData>({
+    nombre: "",
     email: "",
     sitioWeb: "",
     empresa: "",
@@ -84,7 +86,7 @@ export default function OnboardingPage() {
         const urlParams = {
           // Parámetros estándar
           email: formData.email,
-          name: formData.empresa,
+          name: formData.nombre,
           company: formData.empresa,
           phone: formattedPhone,
 
@@ -93,6 +95,7 @@ export default function OnboardingPage() {
           empresa: formData.empresa,
           organization: formData.empresa,
           business: formData.empresa,
+          fullName: formData.nombre,
 
           // Parámetros específicos para Angular Material (basado en el HTML proporcionado)
           answer: formData.empresa,
@@ -105,8 +108,9 @@ export default function OnboardingPage() {
 
           // Parámetros específicos de Brevo (basados en documentación)
           COMPANY: formData.empresa,
-          FNAME: formData.empresa.split(" ")[0] || "Cliente",
-          LNAME: formData.empresa.split(" ").slice(1).join(" ") || formData.empresa,
+          FNAME: formData.nombre.split(" ")[0] || "Cliente",
+          LNAME: formData.nombre.split(" ").slice(1).join(" ") || "",
+          NOMBRE: formData.nombre,
         }
 
         // Convertir el objeto a una cadena de consulta URL
@@ -182,6 +186,7 @@ export default function OnboardingPage() {
   const validateStep1 = () => {
     try {
       z.object({
+        nombre: formSchema.shape.nombre,
         email: formSchema.shape.email,
         sitioWeb: formSchema.shape.sitioWeb,
       }).parse(formData)
@@ -334,8 +339,29 @@ export default function OnboardingPage() {
                   className="space-y-4"
                 >
                   <div className="space-y-2">
+                    <label htmlFor="nombre" className="block text-sm font-medium text-gray-700">
+                      Nombre completo *
+                    </label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <User className="h-5 w-5 text-gray-400" />
+                      </div>
+                      <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        value={formData.nombre}
+                        onChange={handleChange}
+                        className={`block w-full pl-10 pr-3 py-2 border ${errors.nombre ? "border-red-300" : "border-gray-300"} rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500`}
+                        placeholder="Tu nombre completo"
+                      />
+                    </div>
+                    {errors.nombre && <p className="text-red-500 text-sm">{errors.nombre}</p>}
+                  </div>
+
+                  <div className="space-y-2">
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                      Dirección de correo electrónico
+                      Dirección de correo electrónico *
                     </label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -594,6 +620,10 @@ export default function OnboardingPage() {
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
                   <h3 className="font-semibold text-lg mb-4">Información de tu empresa</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+                    <div>
+                      <p className="text-sm text-gray-500">Nombre</p>
+                      <p className="font-medium">{formData.nombre}</p>
+                    </div>
                     <div>
                       <p className="text-sm text-gray-500">Empresa</p>
                       <p className="font-medium">{formData.empresa}</p>

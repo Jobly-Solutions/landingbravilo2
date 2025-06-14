@@ -8,6 +8,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 // Tipos para TypeScript
 export interface OnboardingSubmission {
   id?: string
+  nombre: string // Nuevo campo agregado
   email: string
   sitio_web?: string
   empresa: string

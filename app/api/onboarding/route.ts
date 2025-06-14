@@ -8,17 +8,18 @@ const BREVO_API_KEY = "xkeysib-161489a10121962c3c405361406a1c1202a2fa36ca40f864e
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const { empresa, email, sitioWeb, pais, telefono, industria, tamanoEmpresa } = body
+    const { nombre, empresa, email, sitioWeb, pais, telefono, industria, tamanoEmpresa } = body
 
     // Validar datos mínimos
-    if (!empresa || !email) {
-      return NextResponse.json({ error: "Faltan campos requeridos" }, { status: 400 })
+    if (!nombre || !empresa || !email) {
+      return NextResponse.json({ error: "Faltan campos requeridos (nombre, empresa, email)" }, { status: 400 })
     }
 
-    console.log("Guardando datos:", { email, empresa, sitioWeb, pais, telefono, industria, tamanoEmpresa })
+    console.log("Guardando datos:", { nombre, email, empresa, sitioWeb, pais, telefono, industria, tamanoEmpresa })
 
     // 1. Guardar en Supabase
     const submissionData: Omit<OnboardingSubmission, "id" | "created_at" | "updated_at"> = {
+      nombre,
       email,
       sitio_web: sitioWeb || null,
       empresa,
@@ -55,6 +56,9 @@ export async function POST(request: Request) {
         body: JSON.stringify({
           email,
           attributes: {
+            FIRSTNAME: nombre.split(" ")[0] || nombre, // Primer nombre
+            LASTNAME: nombre.split(" ").slice(1).join(" ") || "", // Apellidos
+            NOMBRE: nombre, // Nombre completo
             EMPRESA: empresa,
             SITIO_WEB: sitioWeb || "",
             PAIS: pais,
